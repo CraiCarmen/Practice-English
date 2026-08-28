@@ -1,0 +1,1065 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>English Practice Portal | 50+50 Exercises</title>
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --bg-color: #f8f9fa;
+            --text-color: #333333;
+            --card-bg: #ffffff;
+            --border-radius: 8px;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        header {
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            padding: 2rem 1rem;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        .card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        h2 {
+            color: var(--primary-color);
+            border-bottom: 2px solid #ecf0f1;
+            padding-bottom: 0.5rem;
+        }
+        input[type="text"], table input[type="text"] {
+            width: 100%;
+            padding: 0.6rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+        th, td {
+            padding: 0.8rem;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+            color: var(--primary-color);
+        }
+        .btn-hint {
+            background-color: #f1c40f;
+            border: none;
+            padding: 0.3rem 0.6rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.85rem;
+        }
+        .hint-text {
+            background-color: #feffa3;
+            padding: 0.4rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            margin-top: 0.3rem;
+            display: none;
+        }
+        .btn-submit {
+            background-color: var(--secondary-color);
+            color: white;
+            border: none;
+            padding: 1rem 2rem;
+            font-size: 1.1rem;
+            font-weight: bold;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 1rem;
+        }
+        .btn-submit:hover {
+            background-color: #2980b9;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>English Practice Portal - Advanced B2 Material</h1>
+        <p>Student Interactive Dashboard | Carmen Crai</p>
+    </header>
+
+    <div class="container">
+        <!-- Section: Subject Customization -->
+        <section class="card">
+            <h2>0. Focus Topic / Subject</h2>
+            <p>Specificați subiectul sau tema lecției curente:</p>
+            <input type="text" id="student-subject" placeholder="Ex: Finance, Logistics, IT, Marketing, HR..." required>
+        </section>
+
+        <!-- Section 1: Error Correction Table -->
+        <section class="card">
+            <h2>1. Error Correction Exercises (50 Items)</h2>
+            <p>Identificați eroarea din fiecare propoziție de mai jos și scrieți varianta corectă.</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 5%;">#</th>
+                        <th style="width: 45%;">Sentence with Error</th>
+                        <th style="width: 40%;">Your Correction</th>
+                        <th style="width: 10%;">Hint</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td><strong>I am knowing the client since three years.</strong></td>
+                        <td><input type="text" class="correction-input" data-orig="I am knowing the client since three years."></td>
+                        <td>
+                            <button class="btn-hint" onclick="toggleHint(1)">💡</button>
+                            <div id="hint-1" class="hint-text">Tense error: Present Perfect instead of Present Continuous for duration.</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td><strong>He must to finish the financial audit report.</strong></td>
+                        <td><input type="text" class="correction-input" data-orig="He must to finish the financial audit report."></td>
+                        <td>
+                            <button class="btn-hint" onclick="toggleHint(2)">💡</button>
+                            <div id="hint-2" class="hint-text">Modal verb error: 'must' is followed by bare infinitive.</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td><strong>The business presentation was very bored.</strong></td>
+                        <td><input type="text" class="correction-input" data-orig="The business presentation was very bored."></td>
+                        <td>
+                            <button class="btn-hint" onclick="toggleHint(3)">💡</button>
+                            <div id="hint-3" class="hint-text">Adjective error: '-ing' for characteristics, '-ed' for feelings.</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td><strong>I look forward to meet you at the conference.</strong></td>
+                        <td><input type="text" class="correction-input" data-orig="I look forward to meet you at the conference."></td>
+                        <td>
+                            <button class="btn-hint" onclick="toggleHint(4)">💡</button>
+                            <div id="hint-4" class="hint-text">Gerund error: 'look forward to' requires a gerund (-ing).</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td><strong>I didn't see nobody in the meeting room.</strong></td>
+                        <td><input type="text" class="correction-input" data-orig="I didn't see nobody in the meeting room."></td>
+                        <td>
+                            <button class="btn-hint" onclick="toggleHint(5)">💡</button>
+                            <div id="hint-5" class="hint-text">Double negation error.</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td><strong>In spite of he was tired, he negotiated well.</strong></td>
+                        <td><input type="text" class="correction-input" data-orig="In spite of he was tired, he negotiated well."></td>
+                        <td>
+                            <button class="btn-hint" onclick="toggleHint(6)">💡</button>
+                            <div id="hint-6" class="hint-text">Linking word error: 'In spite of' requires noun/gerund, not a clause.</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td><strong>She is working here since five months.</strong></td>
+                        <td><input type="text" class="correction-input" data-orig="She is working here since five months."></td>
+                        <td>
+                            <button class="btn-hint" onclick="toggleHint(7)">💡</button>
+                            <div id="hint-7" class="hint-text">Tense error: Present Perfect Continuous for ongoing duration.</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td><strong>They can to deliver the goods tomorrow.</strong></td>
+                        <td><input type="text" class="correction-input" data-orig="They can to deliver the goods tomorrow."></td>
+                        <td>
+                            <button class="btn-hint" onclick="toggleHint(8)">💡</button>
+                            <div id="hint-8" class="hint-text">Modal verb error: 'can' followed by bare infinitive.</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td><strong>The new marketing strategy is very interested.</strong></td>
+                        <td><input type="text" class="correction-input" data-orig="The new marketing strategy is very interested."></td>
+                        <td>
+                            <button class="btn-hint" onclick="toggleHint(9)">💡</button>
+                            <div id="hint-9" class="hint-text">Adjective error: should be 'interesting'.</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td><strong>He suggested to postpond the board meeting.</strong></td>
+                        <td><input type="text" class="correction-input" data-orig="He suggested to postpond the board meeting."></td>
+                        <td>
+                            <button class="btn-hint" onclick="toggleHint(10)">💡</button>
+                            <div id="hint-10" class="hint-text">Gerund error: 'suggest' is followed by a gerund.</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>11</td>
+                        <td><strong>We don't have no money left in the budget.</strong></td>
+                        <td><input type="text" class="correction-input" data-orig="We don't have no money left in the budget."></td>
+                        <td>
+                            <button class="btn-hint" onclick="toggleHint(11)">💡</button>
+                            <div id="hint-11" class="hint-text">Double negation error.</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>12</td>
+                        <td><strong>Although the high prices, sales increased.</strong></td>
+                        <td><input type="text" class="correction-input" data-orig="Although the high prices, sales increased."></td>
+                        <td>
+                            <button class="btn-hint" onclick="toggleHint(12)">💡</button>
+                            <div id="hint-12" class="hint-text">Linking word error: 'Although' requires a full clause, use 'Despite'.</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>13</td>
+                        <td><strong>The manager has left the office an hour ago.</strong></td>
+                        <td><input type="text" class="correction-input" data-orig="The manager has left the office an hour ago."></td>
+                        <td>
+                            <button class="btn-hint" onclick="toggleHint(13)">💡</button>
+                            <div id="hint-13" class="hint-text">Tense error: Past Simple should be used for finished past time.</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>14</td>
+                        <td><strong>You should to double-check the physical label.</strong></td>
+                        <td><input type="text" class="correction-input" data-orig="You should to double-check the physical label."></td>
+                        <td>
+                            <button class="btn-hint" onclick="toggleHint(14)">💡</button>
+                            <div id="hint-14" class="hint-text">Modal verb error: 'should' followed by bare infinitive.</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>15</td>
+                        <td><strong>I felt very interesting during the lecture.</strong></td>
+                        <td><input type="text" class="correction-input" data-orig="I felt very interesting during the lecture."></td>
+                        <td>
+                            <button class="btn-hint" onclick="toggleHint(15)">💡</button>
+                            <div id="hint-15" class="hint-text">Adjective error: should be 'interested'.</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>16</td>
+                        <td><strong>She avoids to speak with the angry client.</strong></td>
+                        <td><input type="text" class="correction-input" data-orig="She avoids to speak with the angry client."></td>
+                        <td>
+                            <button class="btn-hint" onclick="toggleHint(16)">💡</button>
+                            <div id="hint-16" class="hint-text">Gerund error: 'avoid' is followed by a gerund.</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>17</td>
+                        <td><strong>Nobody said nothing about the budget cuts.</strong></td>
+                        <td><input type="text" class="correction-input" data-orig="Nobody said nothing about the budget cuts."></td>
+                        <td>
+                            <button class="btn-hint" onclick="toggleHint(17)">💡</button>
+                            <div id="hint-17" class="hint-text">Double negation error.</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>18</td>
+                        <td><strong>Despite he worked hard, he failed the exam.</strong></td>
+                        <td><input type="text" class="correction-input" data-orig="Despite he worked hard, he failed the exam."></td>
+                        <td>
+                            <button class="btn-hint" onclick="toggleHint(18)">💡</button>
+                            <div id="hint-18" class="hint-text">Linking word error: 'Despite' requires noun/gerund.</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>19</td>
+                        <td><strong>The project was finish by the team yesterday.</strong></td>
+                        <td><input type="text" class="correction-input" data-orig="The project was finish by the team yesterday."></td>
+                        <td>
+                            <button class="btn-hint" onclick="toggleHint(19)">💡</button>
+                            <div id="hint-19" class="hint-text">Passive voice error: past participle needed.</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>20</td>
+                        <td><strong>He may to join us for the business lunch.</strong></td>
+                        <td><input type="text" class="correction-input" data-orig="He may to join us for the business lunch."></td>
+                        <td>
+                            <button class="btn-hint" onclick="toggleHint(20)">💡</button>
+                            <div id="hint-20" class="hint-text">Modal verb error: 'may' followed by bare infinitive.</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>21</td>
+                        <td><strong>The news about the market crash was shocked.</strong></td>
+                        <td><input type="text" class="correction-input" data-orig="The news about the market crash was shocked."></td>
+                        <td>
+                            <button class="btn-hint" onclick="toggleHint(21)">💡</button>
+                            <div id="hint-21" class="hint-text">Adjective error: should be 'shocking'.</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>22</td>
+                        <td><strong>They finished to write the quarterly report.</strong></td>
+                        <td><input type="text" class="correction-input" data-orig="They finished to write the quarterly report."></td>
+                        <td>
+                            <button class="btn-hint" onclick="toggleHint(22)">💡</button>
+                            <div id="hint-22" class="hint-text">Gerund error: 'finish' is followed by a gerund.</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>23</td>
+                        <td><strong>I can't find my keys nowhere in the office.</strong></td>
+                        <td><input type="text" class="correction-input" data-orig="I can't find my keys nowhere in the office."></td>
+                        <td>
+                            <button class="btn-hint" onclick="toggleHint(23)">💡</button>
+                            <div id="hint-23" class="hint-text">Double negation error.</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>24</td>
+                        <td><strong>In spite of the rain was heavy, we arrived on time.</strong></td>
+                        <td><input type="text" class="correction-input" data-orig="In spite of the rain was heavy, we arrived on time."></td>
+                        <td>
+                            <button class="btn-hint" onclick="toggleHint(24)">💡</button>
+                            <div id="hint-24" class="hint-text">Linking word error.</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>25</td>
+                        <td><strong>Look! The stock prices fall rapidly right now.</strong></td>
+                        <td><input type="text" class="correction-input" data-orig="Look! The stock prices fall rapidly right now."></td>
+                        <td>
+                            <button class="btn-hint" onclick="toggleHint(25)">💡</button>
+                            <div id="hint-25" class="hint-text">Tense error: Present Continuous needed for actions happening now.</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>26</td>
+                        <td><strong>We would rather to invest in renewable energy.</strong></td>
+                        <td><input type="text" class="correction-input" data-orig="We would rather to invest in renewable energy."></td>
+                        <td>
+                            <button class="btn-hint" onclick="toggleHint(26)">💡</button>
+                            <div id="hint-26" class="hint-text">Modal/preference error: 'would rather' followed by bare infinitive.</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>27</td>
+                        <td><strong>The movie was so excited that I stayed up late.</strong></td>
+                        <td><input type="text" class="correction-input" data-orig="The movie was so excited that I stayed up late."></td>
+                        <td>
+                            <button class="btn-hint" onclick="toggleHint(27)">💡</button>
+                            <div id="hint-27" class="hint-text">Adjective error: should be 'exciting'.</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>28</td>
+                        <td><strong>He delayed to sign the partnership contract.</strong></td>
+                        <td><input type="text" class="correction-input" data-orig="He delayed to sign the partnership contract."></td>
+                        <td>
+                            <button class="btn-hint" onclick="toggleHint(28)">💡</button>
+                            <div id="hint-28" class="hint-text">Gerund error: 'delay' is followed by a gerund.</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>29</td>
+                        <td><strong>We barely didn't notice the error in the document.</strong></td>
+                        <td><input type="text" class="correction-input" data-orig="We barely didn't notice the error in the document."></td>
+                        <td>
+                            <button class="btn-hint" onclick="toggleHint(29)">💡</button>
+                            <div id="hint-29" class="hint-text">Double negation error: 'barely' is already negative.</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>30</td>
+                        <td><strong>Though the bad weather, the flight took off.</strong></td>
+                        <td><input type="text" class="correction-input" data-orig="Though the bad weather, the flight took off."></td>
+                        <td>
+                            <button class="btn-hint" onclick="toggleHint(30)">💡</button>
+                            <div id="hint-30" class="hint-text">Linking word error: 'Though' requires a clause.</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>31</td>
+                        <td><strong>By the time she arrived, the meeting started.</strong></td>
+                        <td><input type="text" class="correction-input" data-orig="By the time she arrived, the meeting started."></td>
+                        <td>
+                            <button class="btn-hint" onclick="toggleHint(31)">💡</button>
+                            <div id="hint-31" class="hint-text">Tense error: Past Perfect needed for action completed before another past action.</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>32</td>
+                        <td><strong>You had better to sign the agreement today.</strong></td>
+                        <td><input type="text" class="correction-input" data-orig="You had better to sign the agreement today."></td>
+                        <td>
+                            <button class="btn-hint" onclick="toggleHint(32)">💡</button>
+                            <div id="hint-32" class="hint-text">Modal error: 'had better' followed by bare infinitive.</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>33</td>
+                        <td><strong>I am confusing about the new tax regulations.</strong></td>
+                        <td><input type="text" class="correction-input" data-orig="I am confusing about the new tax regulations."></td>
+                        <td>
+                            <button class="btn-hint" onclick="toggleHint(33)">💡</button>
+                            <div id="hint-33" class="hint-text">Adjective error: should be 'confused'.</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>34</td>
+                        <td><strong>She dynamic managed the project to success.</strong></td>
+                        <td><input type="text" class="correction-input" data-orig="She dynamic managed the project to success."></td>
+                        <td>
+                            <button class="btn-hint" onclick="toggleHint(34)">💡</button>
+                            <div id="hint-34" class="hint-text">Adverb error: should use adverb 'dynamically' before verb.</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>35</td>
+                        <td><strong>I never buy nothing from that supplier.</strong></td>
+                        <td><input type="text" class="correction-input" data-orig="I never buy nothing from that supplier."></td>
+                        <td>
+                            <button class="btn-hint" onclick="toggleHint(35)">💡</button>
+                            <div id="hint-35" class="hint-text">Double negation error.</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>36</td>
+                        <td><strong>Due to he was late, we missed the presentation.</strong></td>
+                        <td><input type="text" class="correction-input" data-orig="Due to he was late, we missed the presentation."></td>
+                        <td>
+                            <button class="btn-hint" onclick="toggleHint(36)">💡</button>
+                            <div id="hint-36" class="hint-text">Linking word error: 'Due to' requires a noun phrase.</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>37</td>
+                        <td><strong>If I will see him tomorrow, I will tell him.</strong></td>
+                        <td><input type="text" class="correction-input" data-orig="If I will see him tomorrow, I will tell him."></td>
+                        <td>
+                            <button class="btn-hint" onclick="toggleHint(37)">💡</button>
+                            <div id="hint-37" class="hint-text">Conditional error: 'will' not used in the if-clause of first conditional.</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>38</td>
+                        <td><strong>He ought to finishing the task by noon.</strong></td>
+                        <td><input type="text" class="correction-input" data-orig="He ought to finishing the task by noon."></td>
+                        <td>
+                            <button class="btn-hint" onclick="toggleHint(38)">💡</button>
+                            <div id="hint-38" class="hint-text">Modal error: 'ought to' followed by bare infinitive.</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>39</td>
+                        <td><strong>The performance of the team was outstandingly.</strong></td>
+                        <td><input type="text" class="correction-input" data-orig="The performance of the team was outstandingly."></td>
+                        <td>
+                            <button class="btn-hint" onclick="toggleHint(39)">💡</button>
+                            <div id="hint-39" class="hint-text">Adjective/adverb error: adjective 'outstanding' needed after 'was'.</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>40</td>
+                        <td><strong>It is no use to complain about the results.</strong></td>
+                        <td><input type="text" class="correction-input" data-orig="It is no use to complain about the results."></td>
+                        <td>
+                            <button class="btn-hint" onclick="toggleHint(40)">💡</button>
+                            <div id="hint-40" class="hint-text">Gerund error: 'It is no use' followed by a gerund.</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>41</td>
+                        <td><strong>Hardly anyone didn't attend the annual conference.</strong></td>
+                        <td><input type="text" class="correction-input" data-orig="Hardly anyone didn't attend the annual conference."></td>
+                        <td>
+                            <button class="btn-hint" onclick="toggleHint(41)">💡</button>
+                            <div id="hint-41" class="hint-text">Double negation error.</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>42</td>
+                        <td><strong>Because of she was sick, she stayed home.</strong></td>
+                        <td><input type="text" class="correction-input" data-orig="Because of she was sick, she stayed home."></td>
+                        <td>
+                            <button class="btn-hint" onclick="toggleHint(42)">💡</button>
+                            <div id="hint-42" class="hint-text">Linking word error: 'Because of' requires noun phrase.</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>43</td>
+                        <td><strong>I am used to wake up early for work.</strong></td>
+                        <td><input type="text" class="correction-input" data-orig="I am used to wake up early for work."></td>
+                        <td>
+                            <button class="btn-hint" onclick="toggleHint(43)">💡</button>
+                            <div id="hint-43" class="hint-text">Gerund error: 'be used to' is followed by a gerund (-ing).</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>44</td>
+                        <td><strong>She must to have forgotten her laptop.</strong></td>
+                        <td><input type="text" class="correction-input" data-orig="She must to have forgotten her laptop."></td>
+                        <td>
+                            <button class="btn-hint" onclick="toggleHint(44)">💡</button>
+                            <div id="hint-44" class="hint-text">Modal error: 'must' followed by bare infinitive.</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>45</td>
+                        <td><strong>This contract is more better than the last one.</strong></td>
+                        <td><input type="text" class="correction-input" data-orig="This contract is more better than the last one."></td>
+                        <td>
+                            <button class="btn-hint" onclick="toggleHint(45)">💡</button>
+                            <div id="hint-45" class="hint-text">Double comparative error.</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>46</td>
+                        <td><strong>He denied to steal the company secrets.</strong></td>
+                        <td><input type="text" class="correction-input" data-orig="He denied to steal the company secrets."></td>
+                        <td>
+                            <button class="btn-hint" onclick="toggleHint(46)">💡</button>
+                            <div id="hint-46" class="hint-text">Gerund error: 'deny' followed by a gerund.</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>47</td>
+                        <td><strong>Without no doubt, this is our best product.</strong></td>
+                        <td><input type="text" class="correction-input" data-orig="Without no doubt, this is our best product."></td>
+                        <td>
+                            <button class="btn-hint" onclick="toggleHint(47)">💡</button>
+                            <div id="hint-47" class="hint-text">Double negation error.</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>48</td>
+                        <td><strong>Unless you don't study, you will fail the test.</strong></td>
+                        <td><input type="text" class="correction-input" data-orig="Unless you don't study, you will fail the test."></td>
+                        <td>
+                            <button class="btn-hint" onclick="toggleHint(48)">💡</button>
+                            <div id="hint-48" class="hint-text">Double negative with unless: 'Unless' means 'if not'.</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>49</td>
+                        <td><strong>Last year, I have visited the branch in London.</strong></td>
+                        <td><input type="text" class="correction-input" data-orig="Last year, I have visited the branch in London."></td>
+                        <td>
+                            <button class="btn-hint" onclick="toggleHint(49)">💡</button>
+                            <div id="hint-49" class="hint-text">Tense error: Past Simple for specific past time.</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>50</td>
+                        <td><strong>She can speaks three languages fluently.</strong></td>
+                        <td><input type="text" class="correction-input" data-orig="She can speaks three languages fluently."></td>
+                        <td>
+                            <button class="btn-hint" onclick="toggleHint(50)">💡</button>
+                            <div id="hint-50" class="hint-text">Modal error: modal verbs followed by base form, no 's'.</div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Section 2: Translations Table -->
+        <section class="card">
+            <h2>2. Romanian to English Translations (50 Items)</h2>
+            <p>Traduceți propozițiile de mai jos utilizând structura gramaticală specificată.</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 5%;">#</th>
+                        <th style="width: 45%;">Romanian Sentence & Grammar Structure</th>
+                        <th style="width: 50%;">Your English Translation</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>
+                            <strong>Compania noastră exportă produse în toată lumea.</strong><br>
+                            <small style="color: #7f8c8d; italic;">Present Simple (Habits/facts)</small>
+                        </td>
+                        <td><input type="text" class="translation-input" data-ro="Compania noastră exportă produse în toată lumea." data-struct="Present Simple (Habits/facts)"></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>
+                            <strong>Rapoartele financiare sunt verificate de manager în fiecare lună.</strong><br>
+                            <small style="color: #7f8c8d; italic;">Present Simple Passive (am/is/are + V3)</small>
+                        </td>
+                        <td><input type="text" class="translation-input" data-ro="Rapoartele financiare sunt verificate de manager în fiecare lună." data-struct="Present Simple Passive (am/is/are + V3)"></td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>
+                            <strong>În prezent, negociem un contract foarte important.</strong><br>
+                            <small style="color: #7f8c8d; italic;">Present Continuous (Now/temporary/future plan)</small>
+                        </td>
+                        <td><input type="text" class="translation-input" data-ro="În prezent, negociem un contract foarte important." data-struct="Present Continuous (Now/temporary/future plan)"></td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>
+                            <strong>Echipa a finalizat proiectul ieri seară.</strong><br>
+                            <small style="color: #7f8c8d; italic;">Past Simple (Finished past actions)</small>
+                        </td>
+                        <td><input type="text" class="translation-input" data-ro="Echipa a finalizat proiectul ieri seară." data-struct="Past Simple (Finished past actions)"></td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>
+                            <strong>Decizia finală a fost luată în timpul ședinței de consiliu.</strong><br>
+                            <small style="color: #7f8c8d; italic;">Past Simple Passive (was/were + V3)</small>
+                        </td>
+                        <td><input type="text" class="translation-input" data-ro="Decizia finală a fost luată în timpul ședinței de consiliu." data-struct="Past Simple Passive (was/were + V3)"></td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>
+                            <strong>Directorul citea raportul când a sunat telefonul.</strong><br>
+                            <small style="color: #7f8c8d; italic;">Past Continuous (Background/interrupted action)</small>
+                        </td>
+                        <td><input type="text" class="translation-input" data-ro="Directorul citea raportul când a sunat telefonul." data-struct="Past Continuous (Background/interrupted action)"></td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>
+                            <strong>Am trimis deja e-mailul către toți investitorii.</strong><br>
+                            <small style="color: #7f8c8d; italic;">Present Perfect (Past action, present result)</small>
+                        </td>
+                        <td><input type="text" class="translation-input" data-ro="Am trimis deja e-mailul către toți investitorii." data-struct="Present Perfect (Past action, present result)"></td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td>
+                            <strong>Lucrăm la această strategie de marketing de două luni.</strong><br>
+                            <small style="color: #7f8c8d; italic;">Present Perfect Cont. (Started in past, continues now)</small>
+                        </td>
+                        <td><input type="text" class="translation-input" data-ro="Lucrăm la această strategie de marketing de două luni." data-struct="Present Perfect Cont. (Started in past, continues now)"></td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td>
+                            <strong>Mi-aș fi dorit să fi analizat piața înainte de a investi.</strong><br>
+                            <small style="color: #7f8c8d; italic;">Past Perfect (Action completed before another) + to show regrets</small>
+                        </td>
+                        <td><input type="text" class="translation-input" data-ro="Mi-aș fi dorit să fi analizat piața înainte de a investi." data-struct="Past Perfect (Action completed before another) + to show regrets"></td>
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td>
+                            <strong>Vă voi contacta imediat ce primim aprobarea.</strong><br>
+                            <small style="color: #7f8c8d; italic;">Future Simple (will) (Decisions, promises, predictions)</small>
+                        </td>
+                        <td><input type="text" class="translation-input" data-ro="Vă voi contacta imediat ce primim aprobarea." data-struct="Future Simple (will) (Decisions, promises, predictions)"></td>
+                    </tr>
+                    <tr>
+                        <td>11</td>
+                        <td>
+                            <strong>Noul software va fi implementat săptămâna viitoare.</strong><br>
+                            <small style="color: #7f8c8d; italic;">Future Simple Passive (will be + V3)</small>
+                        </td>
+                        <td><input type="text" class="translation-input" data-ro="Noul software va fi implementat săptămâna viitoare." data-struct="Future Simple Passive (will be + V3)"></td>
+                    </tr>
+                    <tr>
+                        <td>12</td>
+                        <td>
+                            <strong>Mâine la ora aceasta, voi susține prezentarea în fața clienților.</strong><br>
+                            <small style="color: #7f8c8d; italic;">Future Continuous (In progress at a future time)</small>
+                        </td>
+                        <td><input type="text" class="translation-input" data-ro="Mâine la ora aceasta, voi susține prezentarea în fața clienților." data-struct="Future Continuous (In progress at a future time)"></td>
+                    </tr>
+                    <tr>
+                        <td>13</td>
+                        <td>
+                            <strong>Managerul semnează contracte doar în zilele de luni.</strong><br>
+                            <small style="color: #7f8c8d; italic;">Present Simple (Habits/facts)</small>
+                        </td>
+                        <td><input type="text" class="translation-input" data-ro="Managerul semnează contracte doar în zilele de luni." data-struct="Present Simple (Habits/facts)"></td>
+                    </tr>
+                    <tr>
+                        <td>14</td>
+                        <td>
+                            <strong>Mărfurile sunt livrate întotdeauna la timp.</strong><br>
+                            <small style="color: #7f8c8d; italic;">Present Simple Passive (am/is/are + V3)</small>
+                        </td>
+                        <td><input type="text" class="translation-input" data-ro="Mărfurile sunt livrate întotdeauna la timp." data-struct="Present Simple Passive (am/is/are + V3)"></td>
+                    </tr>
+                    <tr>
+                        <td>15</td>
+                        <td>
+                            <strong>Săptămâna aceasta instruim noii angajați ai departamentului.</strong><br>
+                            <small style="color: #7f8c8d; italic;">Present Continuous (Now/temporary/future plan)</small>
+                        </td>
+                        <td><input type="text" class="translation-input" data-ro="Săptămâna aceasta instruim noii angajați ai departamentului." data-struct="Present Continuous (Now/temporary/future plan)"></td>
+                    </tr>
+                    <tr>
+                        <td>16</td>
+                        <td>
+                            <strong>Compania a deschis o nouă sucursală anul trecut.</strong><br>
+                            <small style="color: #7f8c8d; italic;">Past Simple (Finished past actions)</small>
+                        </td>
+                        <td><input type="text" class="translation-input" data-ro="Compania a deschis o nouă sucursală anul trecut." data-struct="Past Simple (Finished past actions)"></td>
+                    </tr>
+                    <tr>
+                        <td>17</td>
+                        <td>
+                            <strong>Propunerea noastră a fost respinsă de comitet.</strong><br>
+                            <small style="color: #7f8c8d; italic;">Past Simple Passive (was/were + V3)</small>
+                        </td>
+                        <td><input type="text" class="translation-input" data-ro="Propunerea noastră a fost respinsă de comitet." data-struct="Past Simple Passive (was/were + V3)"></td>
+                    </tr>
+                    <tr>
+                        <td>18</td>
+                        <td>
+                            <strong>Angajații discutau planul când a izbucnit incendiul.</strong><br>
+                            <small style="color: #7f8c8d; italic;">Past Continuous (Background/interrupted action)</small>
+                        </td>
+                        <td><input type="text" class="translation-input" data-ro="Angajații discutau planul când a izbucnit incendiul." data-struct="Past Continuous (Background/interrupted action)"></td>
+                    </tr>
+                    <tr>
+                        <td>19</td>
+                        <td>
+                            <strong>Secretara a planificat deja toate întâlnirile de afaceri.</strong><br>
+                            <small style="color: #7f8c8d; italic;">Present Perfect (Past action, present result)</small>
+                        </td>
+                        <td><input type="text" class="translation-input" data-ro="Secretara a planificat deja toate întâlnirile de afaceri." data-struct="Present Perfect (Past action, present result)"></td>
+                    </tr>
+                    <tr>
+                        <td>20</td>
+                        <td>
+                            <strong>Compania își extinde rețeaua de distribuție de un an.</strong><br>
+                            <small style="color: #7f8c8d; italic;">Present Perfect Cont. (Started in past, continues now)</small>
+                        </td>
+                        <td><input type="text" class="translation-input" data-ro="Compania își extinde rețeaua de distribuție de un an." data-struct="Present Perfect Cont. (Started in past, continues now)"></td>
+                    </tr>
+                    <tr>
+                        <td>21</td>
+                        <td>
+                            <strong>Regret că nu am semnat acordul de confidențialitate mai devreme.</strong><br>
+                            <small style="color: #7f8c8d; italic;">Past Perfect (Action completed before another) + to show regrets</small>
+                        </td>
+                        <td><input type="text" class="translation-input" data-ro="Regret că nu am semnat acordul de confidențialitate mai devreme." data-struct="Past Perfect (Action completed before another) + to show regrets"></td>
+                    </tr>
+                    <tr>
+                        <td>22</td>
+                        <td>
+                            <strong>Cred că prețul acțiunilor va crește în curând.</strong><br>
+                            <small style="color: #7f8c8d; italic;">Future Simple (will) (Decisions, promises, predictions)</small>
+                        </td>
+                        <td><input type="text" class="translation-input" data-ro="Cred că prețul acțiunilor va crește în curând." data-struct="Future Simple (will) (Decisions, promises, predictions)"></td>
+                    </tr>
+                    <tr>
+                        <td>23</td>
+                        <td>
+                            <strong>Bugetul va fi aprobat în ședința de mâine.</strong><br>
+                            <small style="color: #7f8c8d; italic;">Future Simple Passive (will be + V3)</small>
+                        </td>
+                        <td><input type="text" class="translation-input" data-ro="Bugetul va fi aprobat în ședința de mâine." data-struct="Future Simple Passive (will be + V3)"></td>
+                    </tr>
+                    <tr>
+                        <td>24</td>
+                        <td>
+                            <strong>Vinerea viitoare la prânz, vom zbura spre Londra.</strong><br>
+                            <small style="color: #7f8c8d; italic;">Future Continuous (In progress at a future time)</small>
+                        </td>
+                        <td><input type="text" class="translation-input" data-ro="Vinerea viitoare la prânz, vom zbura spre Londra." data-struct="Future Continuous (In progress at a future time)"></td>
+                    </tr>
+                    <tr>
+                        <td>25</td>
+                        <td>
+                            <strong>Ei analizează riscurile înainte de fiecare investiție.</strong><br>
+                            <small style="color: #7f8c8d; italic;">Present Simple (Habits/facts)</small>
+                        </td>
+                        <td><input type="text" class="translation-input" data-ro="Ei analizează riscurile înainte de fiecare investiție." data-struct="Present Simple (Habits/facts)"></td>
+                    </tr>
+                    <tr>
+                        <td>26</td>
+                        <td>
+                            <strong>Facturile sunt plătite automat prin sistemul bancar.</strong><br>
+                            <small style="color: #7f8c8d; italic;">Present Simple Passive (am/is/are + V3)</small>
+                        </td>
+                        <td><input type="text" class="translation-input" data-ro="Facturile sunt plătite automat prin sistemul bancar." data-struct="Present Simple Passive (am/is/are + V3)"></td>
+                    </tr>
+                    <tr>
+                        <td>27</td>
+                        <td>
+                            <strong>Căutăm un nou partener logistic în această lună.</strong><br>
+                            <small style="color: #7f8c8d; italic;">Present Continuous (Now/temporary/future plan)</small>
+                        </td>
+                        <td><input type="text" class="translation-input" data-ro="Căutăm un nou partener logistic în această lună." data-struct="Present Continuous (Now/temporary/future plan)"></td>
+                    </tr>
+                    <tr>
+                        <td>28</td>
+                        <td>
+                            <strong>Directorul financiar a demisionat acum două zile.</strong><br>
+                            <small style="color: #7f8c8d; italic;">Past Simple (Finished past actions)</small>
+                        </td>
+                        <td><input type="text" class="translation-input" data-ro="Directorul financiar a demisionat acum două zile." data-struct="Past Simple (Finished past actions)"></td>
+                    </tr>
+                    <tr>
+                        <td>29</td>
+                        <td>
+                            <strong>Depozitul a fost distrus de o furtună violentă.</strong><br>
+                            <small style="color: #7f8c8d; italic;">Past Simple Passive (was/were + V3)</small>
+                        </td>
+                        <td><input type="text" class="translation-input" data-ro="Depozitul a fost distrus de o furtună violentă." data-struct="Past Simple Passive (was/were + V3)"></td>
+                    </tr>
+                    <tr>
+                        <td>30</td>
+                        <td>
+                            <strong>Toată lumea muncea din greu când s-a curentat sistemul.</strong><br>
+                            <small style="color: #7f8c8d; italic;">Past Continuous (Background/interrupted action)</small>
+                        </td>
+                        <td><input type="text" class="translation-input" data-ro="Toată lumea muncea din greu când s-a curentat sistemul." data-struct="Past Continuous (Background/interrupted action)"></td>
+                    </tr>
+                    <tr>
+                        <td>31</td>
+                        <td>
+                            <strong>Clienții au acceptat noile noastre condiții comerciale.</strong><br>
+                            <small style="color: #7f8c8d; italic;">Present Perfect (Past action, present result)</small>
+                        </td>
+                        <td><input type="text" class="translation-input" data-ro="Clienții au acceptat noile noastre condiții comerciale." data-struct="Present Perfect (Past action, present result)"></td>
+                    </tr>
+                    <tr>
+                        <td>32</td>
+                        <td>
+                            <strong>Investitorii finanțează acest proiect startup de șase luni.</strong><br>
+                            <small style="color: #7f8c8d; italic;">Present Perfect Cont. (Started in past, continues now)</small>
+                        </td>
+                        <td><input type="text" class="translation-input" data-ro="Investitorii finanțează acest proiect startup de șase luni." data-struct="Present Perfect Cont. (Started in past, continues now)"></td>
+                    </tr>
+                    <tr>
+                        <td>33</td>
+                        <td>
+                            <strong>Mi-aș fi dorit să fi verificat stocurile înainte de livrare.</strong><br>
+                            <small style="color: #7f8c8d; italic;">Past Perfect (Action completed before another) + to show regrets</small>
+                        </td>
+                        <td><input type="text" class="translation-input" data-ro="Mi-aș fi dorit să fi verificat stocurile înainte de livrare." data-struct="Past Perfect (Action completed before another) + to show regrets"></td>
+                    </tr>
+                    <tr>
+                        <td>34</td>
+                        <td>
+                            <strong>Promit că voi trimite oferta de preț actualizată.</strong><br>
+                            <small style="color: #7f8c8d; italic;">Future Simple (will) (Decisions, promises, predictions)</small>
+                        </td>
+                        <td><input type="text" class="translation-input" data-ro="Promit că voi trimite oferta de preț actualizată." data-struct="Future Simple (will) (Decisions, promises, predictions)"></td>
+                    </tr>
+                    <tr>
+                        <td>35</td>
+                        <td>
+                            <strong>Campania de publicitate va fi lansată în curând.</strong><br>
+                            <small style="color: #7f8c8d; italic;">Future Simple Passive (will be + V3)</small>
+                        </td>
+                        <td><input type="text" class="translation-input" data-ro="Campania de publicitate va fi lansată în curând." data-struct="Future Simple Passive (will be + V3)"></td>
+                    </tr>
+                    <tr>
+                        <td>36</td>
+                        <td>
+                            <strong>Luna viitoare pe vremea asta, vom testa noul prototip.</strong><br>
+                            <small style="color: #7f8c8d; italic;">Future Continuous (In progress at a future time)</small>
+                        </td>
+                        <td><input type="text" class="translation-input" data-ro="Luna viitoare pe vremea asta, vom testa noul prototip." data-struct="Future Continuous (In progress at a future time)"></td>
+                    </tr>
+                    <tr>
+                        <td>37</td>
+                        <td>
+                            <strong>Fiecare angajat primește un bonus la sfârșitul anului.</strong><br>
+                            <small style="color: #7f8c8d; italic;">Present Simple (Habits/facts)</small>
+                        </td>
+                        <td><input type="text" class="translation-input" data-ro="Fiecare angajat primește un bonus la sfârșitul anului." data-struct="Present Simple (Habits/facts)"></td>
+                    </tr>
+                    <tr>
+                        <td>38</td>
+                        <td>
+                            <strong>Aceste instrucțiuni sunt traduse în cinci limbi.</strong><br>
+                            <small style="color: #7f8c8d; italic;">Present Simple Passive (am/is/are + V3)</small>
+                        </td>
+                        <td><input type="text" class="translation-input" data-ro="Aceste instrucțiuni sunt traduse în cinci limbi." data-struct="Present Simple Passive (am/is/are + V3)"></td>
+                    </tr>
+                    <tr>
+                        <td>39</td>
+                        <td>
+                            <strong>Dezvoltatorii lansează o actualizare de securitate în seara asta.</strong><br>
+                            <small style="color: #7f8c8d; italic;">Present Continuous (Now/temporary/future plan)</small>
+                        </td>
+                        <td><input type="text" class="translation-input" data-ro="Dezvoltatorii lansează o actualizare de securitate în seara asta." data-struct="Present Continuous (Now/temporary/future plan)"></td>
+                    </tr>
+                    <tr>
+                        <td>40</td>
+                        <td>
+                            <strong>Guvernul a modificat legile fiscale luna trecută.</strong><br>
+                            <small style="color: #7f8c8d; italic;">Past Simple (Finished past actions)</small>
+                        </td>
+                        <td><input type="text" class="translation-input" data-ro="Guvernul a modificat legile fiscale luna trecută." data-struct="Past Simple (Finished past actions)"></td>
+                    </tr>
+                    <tr>
+                        <td>41</td>
+                        <td>
+                            <strong>Mașinile vechi au fost vândute la o licitație publică.</strong><br>
+                            <small style="color: #7f8c8d; italic;">Past Simple Passive (was/were + V3)</small>
+                        </td>
+                        <td><input type="text" class="translation-input" data-ro="Mașinile vechi au fost vândute la o licitație publică." data-struct="Past Simple Passive (was/were + V3)"></td>
+                    </tr>
+                    <tr>
+                        <td>42</td>
+                        <td>
+                            <strong>Echipa de vânzări își pregătea discursul în timp ce clienții soseau.</strong><br>
+                            <small style="color: #7f8c8d; italic;">Past Continuous (Background/interrupted action)</small>
+                        </td>
+                        <td><input type="text" class="translation-input" data-ro="Echipa de vânzări își pregătea discursul în timp ce clienții soseau." data-struct="Past Continuous (Background/interrupted action)"></td>
+                    </tr>
+                    <tr>
+                        <td>43</td>
+                        <td>
+                            <strong>Președintele a semnat deja decretul oficial.</strong><br>
+                            <small style="color: #7f8c8d; italic;">Present Perfect (Past action, present result)</small>
+                        </td>
+                        <td><input type="text" class="translation-input" data-ro="Președintele a semnat deja decretul oficial." data-struct="Present Perfect (Past action, present result)"></td>
+                    </tr>
+                    <tr>
+                        <td>44</td>
+                        <td>
+                            <strong>Departamentul IT remediază această eroare de trei ore.</strong><br>
+                            <small style="color: #7f8c8d; italic;">Present Perfect Cont. (Started in past, continues now)</small>
+                        </td>
+                        <td><input type="text" class="translation-input" data-ro="Departamentul IT remediază această eroare de trei ore." data-struct="Present Perfect Cont. (Started in past, continues now)"></td>
+                    </tr>
+                    <tr>
+                        <td>45</td>
+                        <td>
+                            <strong>Regretăm că nu am cumpărat acel teren industrial anul trecut.</strong><br>
+                            <small style="color: #7f8c8d; italic;">Past Perfect (Action completed before another) + to show regrets</small>
+                        </td>
+                        <td><input type="text" class="translation-input" data-ro="Regretăm că nu am cumpărat acel teren industrial anul trecut." data-struct="Past Perfect (Action completed before another) + to show regrets"></td>
+                    </tr>
+                    <tr>
+                        <td>46</td>
+                        <td>
+                            <strong>Sunt sigur că ei vor câștiga licitația publică.</strong><br>
+                            <small style="color: #7f8c8d; italic;">Future Simple (will) (Decisions, promises, predictions)</small>
+                        </td>
+                        <td><input type="text" class="translation-input" data-ro="Sunt sigur că ei vor câștiga licitația publică." data-struct="Future Simple (will) (Decisions, promises, predictions)"></td>
+                    </tr>
+                    <tr>
+                        <td>47</td>
+                        <td>
+                            <strong>Clădirea de birouri va fi finalizată până în decembrie.</strong><br>
+                            <small style="color: #7f8c8d; italic;">Future Simple Passive (will be + V3)</small>
+                        </td>
+                        <td><input type="text" class="translation-input" data-ro="Clădirea de birouri va fi finalizată până în decembrie." data-struct="Future Simple Passive (will be + V3)"></td>
+                    </tr>
+                    <tr>
+                        <td>48</td>
+                        <td>
+                            <strong>Săptămâna viitoare pe timpul nopții, serverele vor fi actualizate.</strong><br>
+                            <small style="color: #7f8c8d; italic;">Future Continuous (In progress at a future time)</small>
+                        </td>
+                        <td><input type="text" class="translation-input" data-ro="Săptămâna viitoare pe timpul nopții, serverele vor fi actualizate." data-struct="Future Continuous (In progress at a future time)"></td>
+                    </tr>
+                    <tr>
+                        <td>49</td>
+                        <td>
+                            <strong>Auditurile anuale asigură transparența companiei.</strong><br>
+                            <small style="color: #7f8c8d; italic;">Present Simple (Habits/facts)</small>
+                        </td>
+                        <td><input type="text" class="translation-input" data-ro="Auditurile anuale asigură transparența companiei." data-struct="Present Simple (Habits/facts)"></td>
+                    </tr>
+                    <tr>
+                        <td>50</td>
+                        <td>
+                            <strong>Cursul valutar este actualizat automat în fiecare secundă.</strong><br>
+                            <small style="color: #7f8c8d; italic;">Present Simple Passive (am/is/are + V3)</small>
+                        </td>
+                        <td><input type="text" class="translation-input" data-ro="Cursul valutar este actualizat automat în fiecare secundă." data-struct="Present Simple Passive (am/is/are + V3)"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Section 3: Send Results -->
+        <section class="card">
+            <h2>3. Send Results to Carmen</h2>
+            <p>Introduceți numele dvs. complet pentru a trimite tema pe email și a descărca raportul de activitate.</p>
+            <div style="max-width: 500px; margin: 0 auto; text-align: center;">
+                <input type="text" id="student-name" placeholder="Numele tău complet..." required style="margin-bottom: 1rem;"><br>
+                <button class="btn-submit" onclick="handleSubmit()">Send Results to Carmen</button>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        function toggleHint(id) {
+            var hint = document.getElementById('hint-' + id);
+            if (hint.style.display === 'block') {
+                hint.style.display = 'none';
+            } else {
+                hint.style.display = 'block';
+            }
+        }
+
+        function handleSubmit() {
+            var name = document.getElementById('student-name').value.trim();
+            var subject = document.getElementById('student-subject').value.trim();
+
+            if (!name || !subject) {
+                alert('Vă rugăm să completați Numele și Subiectul înainte de a trimite!');
+                return;
+            }
+
+            var textReport = "CARMEN CRAI ENGLISH PORTAL REPORT\n";
+            textReport += "Student: " + name + "\n";
+            textReport += "Subject: " + subject + "\n\n";
+
+            textReport += "--- SECTION 1: ERROR CORRECTION ---\n";
+            var corrections = document.querySelectorAll('.correction-input');
+            corrections.forEach(function(el, index) {
+                textReport += (index + 1) + ". Orig: " + el.getAttribute('data-orig') + "\n   Correction: " + (el.value.trim() || "[No Answer]") + "\n\n";
+            });
+
+            textReport += "\n--- SECTION 2: TRANSLATIONS ---\n";
+            var translations = document.querySelectorAll('.translation-input');
+            translations.forEach(function(el, index) {
+                textReport += (index + 1) + ". RO: " + el.getAttribute('data-ro') + "\n   Structure: " + el.getAttribute('data-struct') + "\n   Translation: " + (el.value.trim() || "[No Answer]") + "\n\n";
+            });
+
+            // Trigger file download (.doc formatted)
+            var blob = new Blob(['\ufeff' + textReport], { type: 'application/msword;charset=utf-8' });
+            var url = URL.createObjectURL(blob);
+            var a = document.createElement('a');
+            a.href = url;
+            a.download = name.replace(/\s+/g, '_') + "_Homework.doc";
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+
+            // Trigger Email to Carmen
+            var emailTo = "jobcarmen@yahaoo.com";
+            var emailSubject = encodeURIComponent("English Homework Submission - " + subject + " [" + name + "]");
+            var emailBody = encodeURIComponent("Bună, Carmen,\n\nAm finalizat cele 100 de exerciții interactive (50 corectări + 50 traduceri) pe tema '" + subject + "'.\n\nRaportul meu în format Word (.doc) a fost descărcat automat și este atașat acestui email.\n\nCu stimă,\n" + name);
+            
+            window.location.href = "mailto:" + emailTo + "?subject=" + emailSubject + "&body=" + emailBody;
+        }
+    </script>
+</body>
+</html>
