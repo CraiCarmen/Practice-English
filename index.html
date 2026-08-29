@@ -7,12 +7,14 @@
     <style>
         * { box-sizing: border-box; }
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(160deg, #0c2a5e 0%, #1e40af 30%, #3b82f6 65%, #93c5fd 100%);
+            font-family: 'Segoe UI', 'Helvetica Neue', Arial, Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(160deg, #f2f7ff 0%, #e8f1ff 45%, #dce8fc 100%);
             background-attachment: fixed;
             color: #1e293b;
             margin: 0;
             padding: 24px 16px 50px 16px;
+            -webkit-font-smoothing: antialiased;
+            line-height: 1.5;
         }
         .topbar {
             max-width: 1200px;
@@ -24,23 +26,23 @@
             gap: 10px;
         }
         .topbar a {
-            color: #eff6ff;
+            color: #1e3a8a;
             text-decoration: none;
             font-weight: 600;
             font-size: 14px;
-            background: rgba(255,255,255,0.15);
+            background: rgba(30, 58, 138, 0.07);
             padding: 8px 16px;
             border-radius: 20px;
-            border: 1px solid rgba(255,255,255,0.35);
+            border: 1px solid rgba(30, 58, 138, 0.2);
             transition: background 0.2s ease;
         }
-        .topbar a:hover { background: rgba(255,255,255,0.3); }
+        .topbar a:hover { background: rgba(30, 58, 138, 0.14); }
         .topbar .brand {
-            color: #ffffff;
+            color: #1e3a8a;
             font-weight: 700;
             font-size: 15px;
             letter-spacing: 0.5px;
-            opacity: 0.9;
+            opacity: 0.95;
         }
         .container {
             max-width: 1200px;
@@ -58,9 +60,47 @@
         }
         .hero h1 { color: #ffffff; margin-bottom: 6px; }
         .hero p { color: #dbeafe; margin-top: 0; font-size: 15px; }
+        .cv-promo {
+            background: linear-gradient(135deg, #fb923c 0%, #ea580c 55%, #c2410c 100%);
+            color: #fff7ed;
+            box-shadow: 0 15px 35px -8px rgba(194, 65, 12, 0.5);
+        }
+        .cv-promo-inner {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        .cv-promo-text p {
+            color: #fff7ed;
+            line-height: 1.7;
+            font-size: 15px;
+            margin: 10px 0;
+        }
+        .cv-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #1e3a8a, #2563eb);
+            color: #ffffff;
+            font-weight: 700;
+            font-size: 15px;
+            padding: 13px 26px;
+            border-radius: 10px;
+            text-decoration: none;
+            margin-top: 10px;
+            box-shadow: 0 8px 18px -4px rgba(15, 41, 97, 0.5);
+            transition: transform 0.15s ease, box-shadow 0.15s ease;
+        }
+        .cv-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 22px -4px rgba(15, 41, 97, 0.6);
+        }
         h1, h2, h3 {
             color: #1e3a8a;
             margin-top: 0;
+            letter-spacing: -0.2px;
+        }
+        h1 {
+            font-size: 26px;
+            font-weight: 700;
         }
         h2 {
             display: flex;
@@ -68,6 +108,10 @@
             gap: 10px;
             border-bottom: 2px solid #dbeafe;
             padding-bottom: 10px;
+            font-size: 19px;
+        }
+        h3 {
+            font-size: 17px;
         }
         .theme-badge {
             display: inline-block;
@@ -220,6 +264,13 @@
             padding-left: 18px;
         }
         .ex-list li { margin-bottom: 4px; }
+        .ex-ro {
+            display: block;
+            color: #64748b;
+            font-size: 12px;
+            font-style: italic;
+            margin-top: 1px;
+        }
         .btn-group {
             display: flex;
             gap: 15px;
@@ -262,12 +313,12 @@
             max-width: 1200px;
             margin: 0 auto;
             text-align: center;
-            color: #eff6ff;
+            color: #64748b;
             font-size: 13px;
-            opacity: 0.85;
+            opacity: 0.9;
             padding-top: 10px;
         }
-        footer a { color: #ffffff; font-weight: 600; }
+        footer a { color: #1e3a8a; font-weight: 600; }
     </style>
 </head>
 <body>
@@ -308,6 +359,17 @@
     <p class="info-note">✨ La fiecare selecție a temei, la fiecare schimbare a numărului de propoziții, la fiecare apăsare a butonului de mai sus și la fiecare reîncărcare a paginii, sistemul generează automat propoziții noi și unice (structuri gramaticale + vocabular profesional), cu șanse minime de repetare.</p>
 </div>
 
+<div class="container cv-promo">
+    <div class="cv-promo-inner">
+        <div class="cv-promo-text">
+            <h2 style="border:none; color:#ffffff; padding-bottom:0;">👩‍🏫 Despre Carmen Crai</h2>
+            <p>Profesoară de limba engleză specializată în comunicare profesională — am lucrat cu cursanți din IT, vânzări, HR, finanțe și achiziții, ajutându-i să comunice cu încredere la locul de muncă.</p>
+            <p>Interesat(ă) de cursuri personalizate, individual sau pentru echipa ta? Consultă mai jos CV-ul și experiența mea completă.</p>
+            <a class="cv-btn" href="https://craicarmen.github.io/Cv_Crai_Carmen/" target="_blank" rel="noopener">📄 Vezi CV-ul și Experiența Mea</a>
+        </div>
+    </div>
+</div>
+
 <div class="container">
     <h3>📊 Ghid de Echivalențe Gramaticale (Grammar Reference Matrix)</h3>
     <p class="info-note">Structurile și cuvintele cheie de mai jos provin din materialul de referință al profesoarei. Apasă pe fiecare timp verbal pentru a extinde exemplele pentru <strong>I / She / We</strong> la fiecare formă: <strong>Afirmativ (+), Negativ (−), Întrebare (?+), Întrebare negativă (?−)</strong>.</p>
@@ -334,24 +396,24 @@
         <tbody>
           <tr>
             <td class="pronoun-cell">I</td>
-            <td><ol class="ex-list"><li>I always work.</li><li>I often work.</li><li>I usually work.</li></ol></td>
-            <td><ol class="ex-list"><li>I don't always work.</li><li>I don't often work.</li><li>I don't usually work.</li></ol></td>
-            <td><ol class="ex-list"><li>Do I always work?</li><li>Do I often work?</li><li>Do I usually work?</li></ol></td>
-            <td><ol class="ex-list"><li>Don't I always work?</li><li>Don't I often work?</li><li>Don't I usually work?</li></ol></td>
+            <td><ol class="ex-list"><li>I always work.<span class="ex-ro">Eu lucrez întotdeauna.</span></li><li>I often work.<span class="ex-ro">Eu lucrez adesea.</span></li><li>I usually work.<span class="ex-ro">Eu lucrez de obicei.</span></li></ol></td>
+            <td><ol class="ex-list"><li>I don't always work.<span class="ex-ro">Eu nu lucrez întotdeauna.</span></li><li>I don't often work.<span class="ex-ro">Eu nu lucrez adesea.</span></li><li>I don't usually work.<span class="ex-ro">Eu nu lucrez de obicei.</span></li></ol></td>
+            <td><ol class="ex-list"><li>Do I always work?<span class="ex-ro">Eu lucrez întotdeauna?</span></li><li>Do I often work?<span class="ex-ro">Eu lucrez adesea?</span></li><li>Do I usually work?<span class="ex-ro">Eu lucrez de obicei?</span></li></ol></td>
+            <td><ol class="ex-list"><li>Don't I always work?<span class="ex-ro">Eu nu lucrez întotdeauna?</span></li><li>Don't I often work?<span class="ex-ro">Eu nu lucrez adesea?</span></li><li>Don't I usually work?<span class="ex-ro">Eu nu lucrez de obicei?</span></li></ol></td>
           </tr>
           <tr>
             <td class="pronoun-cell">She</td>
-            <td><ol class="ex-list"><li>She always works.</li><li>She often works.</li><li>She usually works.</li></ol></td>
-            <td><ol class="ex-list"><li>She doesn't always work.</li><li>She doesn't often work.</li><li>She doesn't usually work.</li></ol></td>
-            <td><ol class="ex-list"><li>Does she always work?</li><li>Does she often work?</li><li>Does she usually work?</li></ol></td>
-            <td><ol class="ex-list"><li>Doesn't she always work?</li><li>Doesn't she often work?</li><li>Doesn't she usually work?</li></ol></td>
+            <td><ol class="ex-list"><li>She always works.<span class="ex-ro">Ea lucrează întotdeauna.</span></li><li>She often works.<span class="ex-ro">Ea lucrează adesea.</span></li><li>She usually works.<span class="ex-ro">Ea lucrează de obicei.</span></li></ol></td>
+            <td><ol class="ex-list"><li>She doesn't always work.<span class="ex-ro">Ea nu lucrează întotdeauna.</span></li><li>She doesn't often work.<span class="ex-ro">Ea nu lucrează adesea.</span></li><li>She doesn't usually work.<span class="ex-ro">Ea nu lucrează de obicei.</span></li></ol></td>
+            <td><ol class="ex-list"><li>Does she always work?<span class="ex-ro">Ea lucrează întotdeauna?</span></li><li>Does she often work?<span class="ex-ro">Ea lucrează adesea?</span></li><li>Does she usually work?<span class="ex-ro">Ea lucrează de obicei?</span></li></ol></td>
+            <td><ol class="ex-list"><li>Doesn't she always work?<span class="ex-ro">Ea nu lucrează întotdeauna?</span></li><li>Doesn't she often work?<span class="ex-ro">Ea nu lucrează adesea?</span></li><li>Doesn't she usually work?<span class="ex-ro">Ea nu lucrează de obicei?</span></li></ol></td>
           </tr>
           <tr>
             <td class="pronoun-cell">We</td>
-            <td><ol class="ex-list"><li>We always work.</li><li>We often work.</li><li>We usually work.</li></ol></td>
-            <td><ol class="ex-list"><li>We don't always work.</li><li>We don't often work.</li><li>We don't usually work.</li></ol></td>
-            <td><ol class="ex-list"><li>Do we always work?</li><li>Do we often work?</li><li>Do we usually work?</li></ol></td>
-            <td><ol class="ex-list"><li>Don't we always work?</li><li>Don't we often work?</li><li>Don't we usually work?</li></ol></td>
+            <td><ol class="ex-list"><li>We always work.<span class="ex-ro">Noi lucrăm întotdeauna.</span></li><li>We often work.<span class="ex-ro">Noi lucrăm adesea.</span></li><li>We usually work.<span class="ex-ro">Noi lucrăm de obicei.</span></li></ol></td>
+            <td><ol class="ex-list"><li>We don't always work.<span class="ex-ro">Noi nu lucrăm întotdeauna.</span></li><li>We don't often work.<span class="ex-ro">Noi nu lucrăm adesea.</span></li><li>We don't usually work.<span class="ex-ro">Noi nu lucrăm de obicei.</span></li></ol></td>
+            <td><ol class="ex-list"><li>Do we always work?<span class="ex-ro">Noi lucrăm întotdeauna?</span></li><li>Do we often work?<span class="ex-ro">Noi lucrăm adesea?</span></li><li>Do we usually work?<span class="ex-ro">Noi lucrăm de obicei?</span></li></ol></td>
+            <td><ol class="ex-list"><li>Don't we always work?<span class="ex-ro">Noi nu lucrăm întotdeauna?</span></li><li>Don't we often work?<span class="ex-ro">Noi nu lucrăm adesea?</span></li><li>Don't we usually work?<span class="ex-ro">Noi nu lucrăm de obicei?</span></li></ol></td>
           </tr>
         </tbody>
       </table>
@@ -367,7 +429,7 @@
         <p class="tense-desc">Focus is on the action, not on the person/doer.</p>
         <p class="tense-form"><strong>Formă:</strong> am/is/are + V3</p>
         <p class="kw-label"><strong>Cuvinte cheie (Key Words):</strong></p>
-        <p class="kw-note">— aceleași cuvinte cheie ca la Present Simple</p>
+        <p class="kw-note">— same key words as Present Simple</p>
         <table class="example-table">
         <thead>
           <tr>
@@ -381,24 +443,24 @@
         <tbody>
           <tr>
             <td class="pronoun-cell">I</td>
-            <td><ol class="ex-list"><li>I am always trained.</li><li>I am often trained.</li><li>I am regularly trained.</li></ol></td>
-            <td><ol class="ex-list"><li>I am not always trained.</li><li>I am not often trained.</li><li>I am not regularly trained.</li></ol></td>
-            <td><ol class="ex-list"><li>Am I always trained?</li><li>Am I often trained?</li><li>Am I regularly trained?</li></ol></td>
-            <td><ol class="ex-list"><li>Am I not always trained?</li><li>Am I not often trained?</li><li>Am I not regularly trained?</li></ol></td>
+            <td><ol class="ex-list"><li>I am always trained.<span class="ex-ro">Eu sunt instruit întotdeauna.</span></li><li>I am often trained.<span class="ex-ro">Eu sunt instruit adesea.</span></li><li>I am regularly trained.<span class="ex-ro">Eu sunt instruit în mod regulat.</span></li></ol></td>
+            <td><ol class="ex-list"><li>I am not always trained.<span class="ex-ro">Eu nu sunt instruit întotdeauna.</span></li><li>I am not often trained.<span class="ex-ro">Eu nu sunt instruit adesea.</span></li><li>I am not regularly trained.<span class="ex-ro">Eu nu sunt instruit în mod regulat.</span></li></ol></td>
+            <td><ol class="ex-list"><li>Am I always trained?<span class="ex-ro">Eu sunt instruit întotdeauna?</span></li><li>Am I often trained?<span class="ex-ro">Eu sunt instruit adesea?</span></li><li>Am I regularly trained?<span class="ex-ro">Eu sunt instruit în mod regulat?</span></li></ol></td>
+            <td><ol class="ex-list"><li>Am I not always trained?<span class="ex-ro">Eu nu sunt instruit întotdeauna?</span></li><li>Am I not often trained?<span class="ex-ro">Eu nu sunt instruit adesea?</span></li><li>Am I not regularly trained?<span class="ex-ro">Eu nu sunt instruit în mod regulat?</span></li></ol></td>
           </tr>
           <tr>
             <td class="pronoun-cell">She</td>
-            <td><ol class="ex-list"><li>She is always trained.</li><li>She is often trained.</li><li>She is regularly trained.</li></ol></td>
-            <td><ol class="ex-list"><li>She isn't always trained.</li><li>She isn't often trained.</li><li>She isn't regularly trained.</li></ol></td>
-            <td><ol class="ex-list"><li>Is she always trained?</li><li>Is she often trained?</li><li>Is she regularly trained?</li></ol></td>
-            <td><ol class="ex-list"><li>Isn't she always trained?</li><li>Isn't she often trained?</li><li>Isn't she regularly trained?</li></ol></td>
+            <td><ol class="ex-list"><li>She is always trained.<span class="ex-ro">Ea este instruită întotdeauna.</span></li><li>She is often trained.<span class="ex-ro">Ea este instruită adesea.</span></li><li>She is regularly trained.<span class="ex-ro">Ea este instruită în mod regulat.</span></li></ol></td>
+            <td><ol class="ex-list"><li>She isn't always trained.<span class="ex-ro">Ea nu este instruită întotdeauna.</span></li><li>She isn't often trained.<span class="ex-ro">Ea nu este instruită adesea.</span></li><li>She isn't regularly trained.<span class="ex-ro">Ea nu este instruită în mod regulat.</span></li></ol></td>
+            <td><ol class="ex-list"><li>Is she always trained?<span class="ex-ro">Ea este instruită întotdeauna?</span></li><li>Is she often trained?<span class="ex-ro">Ea este instruită adesea?</span></li><li>Is she regularly trained?<span class="ex-ro">Ea este instruită în mod regulat?</span></li></ol></td>
+            <td><ol class="ex-list"><li>Isn't she always trained?<span class="ex-ro">Ea nu este instruită întotdeauna?</span></li><li>Isn't she often trained?<span class="ex-ro">Ea nu este instruită adesea?</span></li><li>Isn't she regularly trained?<span class="ex-ro">Ea nu este instruită în mod regulat?</span></li></ol></td>
           </tr>
           <tr>
             <td class="pronoun-cell">We</td>
-            <td><ol class="ex-list"><li>We are always trained.</li><li>We are often trained.</li><li>We are regularly trained.</li></ol></td>
-            <td><ol class="ex-list"><li>We aren't always trained.</li><li>We aren't often trained.</li><li>We aren't regularly trained.</li></ol></td>
-            <td><ol class="ex-list"><li>Are we always trained?</li><li>Are we often trained?</li><li>Are we regularly trained?</li></ol></td>
-            <td><ol class="ex-list"><li>Aren't we always trained?</li><li>Aren't we often trained?</li><li>Aren't we regularly trained?</li></ol></td>
+            <td><ol class="ex-list"><li>We are always trained.<span class="ex-ro">Noi suntem instruiți întotdeauna.</span></li><li>We are often trained.<span class="ex-ro">Noi suntem instruiți adesea.</span></li><li>We are regularly trained.<span class="ex-ro">Noi suntem instruiți în mod regulat.</span></li></ol></td>
+            <td><ol class="ex-list"><li>We aren't always trained.<span class="ex-ro">Noi nu suntem instruiți întotdeauna.</span></li><li>We aren't often trained.<span class="ex-ro">Noi nu suntem instruiți adesea.</span></li><li>We aren't regularly trained.<span class="ex-ro">Noi nu suntem instruiți în mod regulat.</span></li></ol></td>
+            <td><ol class="ex-list"><li>Are we always trained?<span class="ex-ro">Noi suntem instruiți întotdeauna?</span></li><li>Are we often trained?<span class="ex-ro">Noi suntem instruiți adesea?</span></li><li>Are we regularly trained?<span class="ex-ro">Noi suntem instruiți în mod regulat?</span></li></ol></td>
+            <td><ol class="ex-list"><li>Aren't we always trained?<span class="ex-ro">Noi nu suntem instruiți întotdeauna?</span></li><li>Aren't we often trained?<span class="ex-ro">Noi nu suntem instruiți adesea?</span></li><li>Aren't we regularly trained?<span class="ex-ro">Noi nu suntem instruiți în mod regulat?</span></li></ol></td>
           </tr>
         </tbody>
       </table>
@@ -428,24 +490,24 @@
         <tbody>
           <tr>
             <td class="pronoun-cell">I</td>
-            <td><ol class="ex-list"><li>I am working right now.</li><li>I am working at the moment.</li><li>I am working now.</li></ol></td>
-            <td><ol class="ex-list"><li>I am not working right now.</li><li>I am not working at the moment.</li><li>I am not working now.</li></ol></td>
-            <td><ol class="ex-list"><li>Am I working right now?</li><li>Am I working at the moment?</li><li>Am I working now?</li></ol></td>
-            <td><ol class="ex-list"><li>Am I not working right now?</li><li>Am I not working at the moment?</li><li>Am I not working now?</li></ol></td>
+            <td><ol class="ex-list"><li>I am working right now.<span class="ex-ro">Eu lucrez chiar acum.</span></li><li>I am working at the moment.<span class="ex-ro">Eu lucrez în acest moment.</span></li><li>I am working now.<span class="ex-ro">Eu lucrez acum.</span></li></ol></td>
+            <td><ol class="ex-list"><li>I am not working right now.<span class="ex-ro">Eu nu lucrez chiar acum.</span></li><li>I am not working at the moment.<span class="ex-ro">Eu nu lucrez în acest moment.</span></li><li>I am not working now.<span class="ex-ro">Eu nu lucrez acum.</span></li></ol></td>
+            <td><ol class="ex-list"><li>Am I working right now?<span class="ex-ro">Eu lucrez chiar acum?</span></li><li>Am I working at the moment?<span class="ex-ro">Eu lucrez în acest moment?</span></li><li>Am I working now?<span class="ex-ro">Eu lucrez acum?</span></li></ol></td>
+            <td><ol class="ex-list"><li>Am I not working right now?<span class="ex-ro">Eu nu lucrez chiar acum?</span></li><li>Am I not working at the moment?<span class="ex-ro">Eu nu lucrez în acest moment?</span></li><li>Am I not working now?<span class="ex-ro">Eu nu lucrez acum?</span></li></ol></td>
           </tr>
           <tr>
             <td class="pronoun-cell">She</td>
-            <td><ol class="ex-list"><li>She is working right now.</li><li>She is working at the moment.</li><li>She is working now.</li></ol></td>
-            <td><ol class="ex-list"><li>She isn't working right now.</li><li>She isn't working at the moment.</li><li>She isn't working now.</li></ol></td>
-            <td><ol class="ex-list"><li>Is she working right now?</li><li>Is she working at the moment?</li><li>Is she working now?</li></ol></td>
-            <td><ol class="ex-list"><li>Isn't she working right now?</li><li>Isn't she working at the moment?</li><li>Isn't she working now?</li></ol></td>
+            <td><ol class="ex-list"><li>She is working right now.<span class="ex-ro">Ea lucrează chiar acum.</span></li><li>She is working at the moment.<span class="ex-ro">Ea lucrează în acest moment.</span></li><li>She is working now.<span class="ex-ro">Ea lucrează acum.</span></li></ol></td>
+            <td><ol class="ex-list"><li>She isn't working right now.<span class="ex-ro">Ea nu lucrează chiar acum.</span></li><li>She isn't working at the moment.<span class="ex-ro">Ea nu lucrează în acest moment.</span></li><li>She isn't working now.<span class="ex-ro">Ea nu lucrează acum.</span></li></ol></td>
+            <td><ol class="ex-list"><li>Is she working right now?<span class="ex-ro">Ea lucrează chiar acum?</span></li><li>Is she working at the moment?<span class="ex-ro">Ea lucrează în acest moment?</span></li><li>Is she working now?<span class="ex-ro">Ea lucrează acum?</span></li></ol></td>
+            <td><ol class="ex-list"><li>Isn't she working right now?<span class="ex-ro">Ea nu lucrează chiar acum?</span></li><li>Isn't she working at the moment?<span class="ex-ro">Ea nu lucrează în acest moment?</span></li><li>Isn't she working now?<span class="ex-ro">Ea nu lucrează acum?</span></li></ol></td>
           </tr>
           <tr>
             <td class="pronoun-cell">We</td>
-            <td><ol class="ex-list"><li>We are working right now.</li><li>We are working at the moment.</li><li>We are working now.</li></ol></td>
-            <td><ol class="ex-list"><li>We aren't working right now.</li><li>We aren't working at the moment.</li><li>We aren't working now.</li></ol></td>
-            <td><ol class="ex-list"><li>Are we working right now?</li><li>Are we working at the moment?</li><li>Are we working now?</li></ol></td>
-            <td><ol class="ex-list"><li>Aren't we working right now?</li><li>Aren't we working at the moment?</li><li>Aren't we working now?</li></ol></td>
+            <td><ol class="ex-list"><li>We are working right now.<span class="ex-ro">Noi lucrăm chiar acum.</span></li><li>We are working at the moment.<span class="ex-ro">Noi lucrăm în acest moment.</span></li><li>We are working now.<span class="ex-ro">Noi lucrăm acum.</span></li></ol></td>
+            <td><ol class="ex-list"><li>We aren't working right now.<span class="ex-ro">Noi nu lucrăm chiar acum.</span></li><li>We aren't working at the moment.<span class="ex-ro">Noi nu lucrăm în acest moment.</span></li><li>We aren't working now.<span class="ex-ro">Noi nu lucrăm acum.</span></li></ol></td>
+            <td><ol class="ex-list"><li>Are we working right now?<span class="ex-ro">Noi lucrăm chiar acum?</span></li><li>Are we working at the moment?<span class="ex-ro">Noi lucrăm în acest moment?</span></li><li>Are we working now?<span class="ex-ro">Noi lucrăm acum?</span></li></ol></td>
+            <td><ol class="ex-list"><li>Aren't we working right now?<span class="ex-ro">Noi nu lucrăm chiar acum?</span></li><li>Aren't we working at the moment?<span class="ex-ro">Noi nu lucrăm în acest moment?</span></li><li>Aren't we working now?<span class="ex-ro">Noi nu lucrăm acum?</span></li></ol></td>
           </tr>
         </tbody>
       </table>
@@ -475,24 +537,24 @@
         <tbody>
           <tr>
             <td class="pronoun-cell">I</td>
-            <td><ol class="ex-list"><li>I have already worked.</li><li>I have just worked.</li><li>I have worked so far.</li></ol></td>
-            <td><ol class="ex-list"><li>I haven't already worked.</li><li>I haven't just worked.</li><li>I haven't worked so far.</li></ol></td>
-            <td><ol class="ex-list"><li>Have I already worked?</li><li>Have I just worked?</li><li>Have I worked so far?</li></ol></td>
-            <td><ol class="ex-list"><li>Haven't I already worked?</li><li>Haven't I just worked?</li><li>Haven't I worked so far?</li></ol></td>
+            <td><ol class="ex-list"><li>I have already worked.<span class="ex-ro">Eu am lucrat deja.</span></li><li>I have just worked.<span class="ex-ro">Eu am lucrat tocmai.</span></li><li>I have worked so far.<span class="ex-ro">Eu am lucrat până acum.</span></li></ol></td>
+            <td><ol class="ex-list"><li>I haven't already worked.<span class="ex-ro">Eu nu am lucrat deja.</span></li><li>I haven't just worked.<span class="ex-ro">Eu nu am lucrat tocmai.</span></li><li>I haven't worked so far.<span class="ex-ro">Eu nu am lucrat până acum.</span></li></ol></td>
+            <td><ol class="ex-list"><li>Have I already worked?<span class="ex-ro">Eu am lucrat deja?</span></li><li>Have I just worked?<span class="ex-ro">Eu am lucrat tocmai?</span></li><li>Have I worked so far?<span class="ex-ro">Eu am lucrat până acum?</span></li></ol></td>
+            <td><ol class="ex-list"><li>Haven't I already worked?<span class="ex-ro">Eu nu am lucrat deja?</span></li><li>Haven't I just worked?<span class="ex-ro">Eu nu am lucrat tocmai?</span></li><li>Haven't I worked so far?<span class="ex-ro">Eu nu am lucrat până acum?</span></li></ol></td>
           </tr>
           <tr>
             <td class="pronoun-cell">She</td>
-            <td><ol class="ex-list"><li>She has already worked.</li><li>She has just worked.</li><li>She has worked so far.</li></ol></td>
-            <td><ol class="ex-list"><li>She hasn't already worked.</li><li>She hasn't just worked.</li><li>She hasn't worked so far.</li></ol></td>
-            <td><ol class="ex-list"><li>Has she already worked?</li><li>Has she just worked?</li><li>Has she worked so far?</li></ol></td>
-            <td><ol class="ex-list"><li>Hasn't she already worked?</li><li>Hasn't she just worked?</li><li>Hasn't she worked so far?</li></ol></td>
+            <td><ol class="ex-list"><li>She has already worked.<span class="ex-ro">Ea a lucrat deja.</span></li><li>She has just worked.<span class="ex-ro">Ea a lucrat tocmai.</span></li><li>She has worked so far.<span class="ex-ro">Ea a lucrat până acum.</span></li></ol></td>
+            <td><ol class="ex-list"><li>She hasn't already worked.<span class="ex-ro">Ea nu a lucrat deja.</span></li><li>She hasn't just worked.<span class="ex-ro">Ea nu a lucrat tocmai.</span></li><li>She hasn't worked so far.<span class="ex-ro">Ea nu a lucrat până acum.</span></li></ol></td>
+            <td><ol class="ex-list"><li>Has she already worked?<span class="ex-ro">Ea a lucrat deja?</span></li><li>Has she just worked?<span class="ex-ro">Ea a lucrat tocmai?</span></li><li>Has she worked so far?<span class="ex-ro">Ea a lucrat până acum?</span></li></ol></td>
+            <td><ol class="ex-list"><li>Hasn't she already worked?<span class="ex-ro">Ea nu a lucrat deja?</span></li><li>Hasn't she just worked?<span class="ex-ro">Ea nu a lucrat tocmai?</span></li><li>Hasn't she worked so far?<span class="ex-ro">Ea nu a lucrat până acum?</span></li></ol></td>
           </tr>
           <tr>
             <td class="pronoun-cell">We</td>
-            <td><ol class="ex-list"><li>We have already worked.</li><li>We have just worked.</li><li>We have worked so far.</li></ol></td>
-            <td><ol class="ex-list"><li>We haven't already worked.</li><li>We haven't just worked.</li><li>We haven't worked so far.</li></ol></td>
-            <td><ol class="ex-list"><li>Have we already worked?</li><li>Have we just worked?</li><li>Have we worked so far?</li></ol></td>
-            <td><ol class="ex-list"><li>Haven't we already worked?</li><li>Haven't we just worked?</li><li>Haven't we worked so far?</li></ol></td>
+            <td><ol class="ex-list"><li>We have already worked.<span class="ex-ro">Noi am lucrat deja.</span></li><li>We have just worked.<span class="ex-ro">Noi am lucrat tocmai.</span></li><li>We have worked so far.<span class="ex-ro">Noi am lucrat până acum.</span></li></ol></td>
+            <td><ol class="ex-list"><li>We haven't already worked.<span class="ex-ro">Noi nu am lucrat deja.</span></li><li>We haven't just worked.<span class="ex-ro">Noi nu am lucrat tocmai.</span></li><li>We haven't worked so far.<span class="ex-ro">Noi nu am lucrat până acum.</span></li></ol></td>
+            <td><ol class="ex-list"><li>Have we already worked?<span class="ex-ro">Noi am lucrat deja?</span></li><li>Have we just worked?<span class="ex-ro">Noi am lucrat tocmai?</span></li><li>Have we worked so far?<span class="ex-ro">Noi am lucrat până acum?</span></li></ol></td>
+            <td><ol class="ex-list"><li>Haven't we already worked?<span class="ex-ro">Noi nu am lucrat deja?</span></li><li>Haven't we just worked?<span class="ex-ro">Noi nu am lucrat tocmai?</span></li><li>Haven't we worked so far?<span class="ex-ro">Noi nu am lucrat până acum?</span></li></ol></td>
           </tr>
         </tbody>
       </table>
@@ -522,24 +584,24 @@
         <tbody>
           <tr>
             <td class="pronoun-cell">I</td>
-            <td><ol class="ex-list"><li>I have been working for two hours.</li><li>I have been working since this morning.</li><li>I have been working all day.</li></ol></td>
-            <td><ol class="ex-list"><li>I haven't been working for two hours.</li><li>I haven't been working since this morning.</li><li>I haven't been working all day.</li></ol></td>
-            <td><ol class="ex-list"><li>Have I been working for two hours?</li><li>Have I been working since this morning?</li><li>Have I been working all day?</li></ol></td>
-            <td><ol class="ex-list"><li>Haven't I been working for two hours?</li><li>Haven't I been working since this morning?</li><li>Haven't I been working all day?</li></ol></td>
+            <td><ol class="ex-list"><li>I have been working for two hours.<span class="ex-ro">Eu lucrez de două ore.</span></li><li>I have been working since this morning.<span class="ex-ro">Eu lucrez de dimineață.</span></li><li>I have been working all day.<span class="ex-ro">Eu lucrez toată ziua.</span></li></ol></td>
+            <td><ol class="ex-list"><li>I haven't been working for two hours.<span class="ex-ro">Eu nu lucrez de două ore.</span></li><li>I haven't been working since this morning.<span class="ex-ro">Eu nu lucrez de dimineață.</span></li><li>I haven't been working all day.<span class="ex-ro">Eu nu lucrez toată ziua.</span></li></ol></td>
+            <td><ol class="ex-list"><li>Have I been working for two hours?<span class="ex-ro">Eu lucrez de două ore?</span></li><li>Have I been working since this morning?<span class="ex-ro">Eu lucrez de dimineață?</span></li><li>Have I been working all day?<span class="ex-ro">Eu lucrez toată ziua?</span></li></ol></td>
+            <td><ol class="ex-list"><li>Haven't I been working for two hours?<span class="ex-ro">Eu nu lucrez de două ore?</span></li><li>Haven't I been working since this morning?<span class="ex-ro">Eu nu lucrez de dimineață?</span></li><li>Haven't I been working all day?<span class="ex-ro">Eu nu lucrez toată ziua?</span></li></ol></td>
           </tr>
           <tr>
             <td class="pronoun-cell">She</td>
-            <td><ol class="ex-list"><li>She has been working for two hours.</li><li>She has been working since this morning.</li><li>She has been working all day.</li></ol></td>
-            <td><ol class="ex-list"><li>She hasn't been working for two hours.</li><li>She hasn't been working since this morning.</li><li>She hasn't been working all day.</li></ol></td>
-            <td><ol class="ex-list"><li>Has she been working for two hours?</li><li>Has she been working since this morning?</li><li>Has she been working all day?</li></ol></td>
-            <td><ol class="ex-list"><li>Hasn't she been working for two hours?</li><li>Hasn't she been working since this morning?</li><li>Hasn't she been working all day?</li></ol></td>
+            <td><ol class="ex-list"><li>She has been working for two hours.<span class="ex-ro">Ea lucrează de două ore.</span></li><li>She has been working since this morning.<span class="ex-ro">Ea lucrează de dimineață.</span></li><li>She has been working all day.<span class="ex-ro">Ea lucrează toată ziua.</span></li></ol></td>
+            <td><ol class="ex-list"><li>She hasn't been working for two hours.<span class="ex-ro">Ea nu lucrează de două ore.</span></li><li>She hasn't been working since this morning.<span class="ex-ro">Ea nu lucrează de dimineață.</span></li><li>She hasn't been working all day.<span class="ex-ro">Ea nu lucrează toată ziua.</span></li></ol></td>
+            <td><ol class="ex-list"><li>Has she been working for two hours?<span class="ex-ro">Ea lucrează de două ore?</span></li><li>Has she been working since this morning?<span class="ex-ro">Ea lucrează de dimineață?</span></li><li>Has she been working all day?<span class="ex-ro">Ea lucrează toată ziua?</span></li></ol></td>
+            <td><ol class="ex-list"><li>Hasn't she been working for two hours?<span class="ex-ro">Ea nu lucrează de două ore?</span></li><li>Hasn't she been working since this morning?<span class="ex-ro">Ea nu lucrează de dimineață?</span></li><li>Hasn't she been working all day?<span class="ex-ro">Ea nu lucrează toată ziua?</span></li></ol></td>
           </tr>
           <tr>
             <td class="pronoun-cell">We</td>
-            <td><ol class="ex-list"><li>We have been working for two hours.</li><li>We have been working since this morning.</li><li>We have been working all day.</li></ol></td>
-            <td><ol class="ex-list"><li>We haven't been working for two hours.</li><li>We haven't been working since this morning.</li><li>We haven't been working all day.</li></ol></td>
-            <td><ol class="ex-list"><li>Have we been working for two hours?</li><li>Have we been working since this morning?</li><li>Have we been working all day?</li></ol></td>
-            <td><ol class="ex-list"><li>Haven't we been working for two hours?</li><li>Haven't we been working since this morning?</li><li>Haven't we been working all day?</li></ol></td>
+            <td><ol class="ex-list"><li>We have been working for two hours.<span class="ex-ro">Noi lucrăm de două ore.</span></li><li>We have been working since this morning.<span class="ex-ro">Noi lucrăm de dimineață.</span></li><li>We have been working all day.<span class="ex-ro">Noi lucrăm toată ziua.</span></li></ol></td>
+            <td><ol class="ex-list"><li>We haven't been working for two hours.<span class="ex-ro">Noi nu lucrăm de două ore.</span></li><li>We haven't been working since this morning.<span class="ex-ro">Noi nu lucrăm de dimineață.</span></li><li>We haven't been working all day.<span class="ex-ro">Noi nu lucrăm toată ziua.</span></li></ol></td>
+            <td><ol class="ex-list"><li>Have we been working for two hours?<span class="ex-ro">Noi lucrăm de două ore?</span></li><li>Have we been working since this morning?<span class="ex-ro">Noi lucrăm de dimineață?</span></li><li>Have we been working all day?<span class="ex-ro">Noi lucrăm toată ziua?</span></li></ol></td>
+            <td><ol class="ex-list"><li>Haven't we been working for two hours?<span class="ex-ro">Noi nu lucrăm de două ore?</span></li><li>Haven't we been working since this morning?<span class="ex-ro">Noi nu lucrăm de dimineață?</span></li><li>Haven't we been working all day?<span class="ex-ro">Noi nu lucrăm toată ziua?</span></li></ol></td>
           </tr>
         </tbody>
       </table>
@@ -569,24 +631,24 @@
         <tbody>
           <tr>
             <td class="pronoun-cell">I</td>
-            <td><ol class="ex-list"><li>I worked yesterday.</li><li>I worked last Friday.</li><li>I worked in 1990.</li></ol></td>
-            <td><ol class="ex-list"><li>I didn't work yesterday.</li><li>I didn't work last Friday.</li><li>I didn't work in 1990.</li></ol></td>
-            <td><ol class="ex-list"><li>Did I work yesterday?</li><li>Did I work last Friday?</li><li>Did I work in 1990?</li></ol></td>
-            <td><ol class="ex-list"><li>Didn't I work yesterday?</li><li>Didn't I work last Friday?</li><li>Didn't I work in 1990?</li></ol></td>
+            <td><ol class="ex-list"><li>I worked yesterday.<span class="ex-ro">Eu am lucrat ieri.</span></li><li>I worked last Friday.<span class="ex-ro">Eu am lucrat vineri trecut.</span></li><li>I worked in 1990.<span class="ex-ro">Eu am lucrat în 1990.</span></li></ol></td>
+            <td><ol class="ex-list"><li>I didn't work yesterday.<span class="ex-ro">Eu nu am lucrat ieri.</span></li><li>I didn't work last Friday.<span class="ex-ro">Eu nu am lucrat vineri trecut.</span></li><li>I didn't work in 1990.<span class="ex-ro">Eu nu am lucrat în 1990.</span></li></ol></td>
+            <td><ol class="ex-list"><li>Did I work yesterday?<span class="ex-ro">Eu am lucrat ieri?</span></li><li>Did I work last Friday?<span class="ex-ro">Eu am lucrat vineri trecut?</span></li><li>Did I work in 1990?<span class="ex-ro">Eu am lucrat în 1990?</span></li></ol></td>
+            <td><ol class="ex-list"><li>Didn't I work yesterday?<span class="ex-ro">Eu nu am lucrat ieri?</span></li><li>Didn't I work last Friday?<span class="ex-ro">Eu nu am lucrat vineri trecut?</span></li><li>Didn't I work in 1990?<span class="ex-ro">Eu nu am lucrat în 1990?</span></li></ol></td>
           </tr>
           <tr>
             <td class="pronoun-cell">She</td>
-            <td><ol class="ex-list"><li>She worked yesterday.</li><li>She worked last Friday.</li><li>She worked in 1990.</li></ol></td>
-            <td><ol class="ex-list"><li>She didn't work yesterday.</li><li>She didn't work last Friday.</li><li>She didn't work in 1990.</li></ol></td>
-            <td><ol class="ex-list"><li>Did she work yesterday?</li><li>Did she work last Friday?</li><li>Did she work in 1990?</li></ol></td>
-            <td><ol class="ex-list"><li>Didn't she work yesterday?</li><li>Didn't she work last Friday?</li><li>Didn't she work in 1990?</li></ol></td>
+            <td><ol class="ex-list"><li>She worked yesterday.<span class="ex-ro">Ea a lucrat ieri.</span></li><li>She worked last Friday.<span class="ex-ro">Ea a lucrat vineri trecut.</span></li><li>She worked in 1990.<span class="ex-ro">Ea a lucrat în 1990.</span></li></ol></td>
+            <td><ol class="ex-list"><li>She didn't work yesterday.<span class="ex-ro">Ea nu a lucrat ieri.</span></li><li>She didn't work last Friday.<span class="ex-ro">Ea nu a lucrat vineri trecut.</span></li><li>She didn't work in 1990.<span class="ex-ro">Ea nu a lucrat în 1990.</span></li></ol></td>
+            <td><ol class="ex-list"><li>Did she work yesterday?<span class="ex-ro">Ea a lucrat ieri?</span></li><li>Did she work last Friday?<span class="ex-ro">Ea a lucrat vineri trecut?</span></li><li>Did she work in 1990?<span class="ex-ro">Ea a lucrat în 1990?</span></li></ol></td>
+            <td><ol class="ex-list"><li>Didn't she work yesterday?<span class="ex-ro">Ea nu a lucrat ieri?</span></li><li>Didn't she work last Friday?<span class="ex-ro">Ea nu a lucrat vineri trecut?</span></li><li>Didn't she work in 1990?<span class="ex-ro">Ea nu a lucrat în 1990?</span></li></ol></td>
           </tr>
           <tr>
             <td class="pronoun-cell">We</td>
-            <td><ol class="ex-list"><li>We worked yesterday.</li><li>We worked last Friday.</li><li>We worked in 1990.</li></ol></td>
-            <td><ol class="ex-list"><li>We didn't work yesterday.</li><li>We didn't work last Friday.</li><li>We didn't work in 1990.</li></ol></td>
-            <td><ol class="ex-list"><li>Did we work yesterday?</li><li>Did we work last Friday?</li><li>Did we work in 1990?</li></ol></td>
-            <td><ol class="ex-list"><li>Didn't we work yesterday?</li><li>Didn't we work last Friday?</li><li>Didn't we work in 1990?</li></ol></td>
+            <td><ol class="ex-list"><li>We worked yesterday.<span class="ex-ro">Noi am lucrat ieri.</span></li><li>We worked last Friday.<span class="ex-ro">Noi am lucrat vineri trecut.</span></li><li>We worked in 1990.<span class="ex-ro">Noi am lucrat în 1990.</span></li></ol></td>
+            <td><ol class="ex-list"><li>We didn't work yesterday.<span class="ex-ro">Noi nu am lucrat ieri.</span></li><li>We didn't work last Friday.<span class="ex-ro">Noi nu am lucrat vineri trecut.</span></li><li>We didn't work in 1990.<span class="ex-ro">Noi nu am lucrat în 1990.</span></li></ol></td>
+            <td><ol class="ex-list"><li>Did we work yesterday?<span class="ex-ro">Noi am lucrat ieri?</span></li><li>Did we work last Friday?<span class="ex-ro">Noi am lucrat vineri trecut?</span></li><li>Did we work in 1990?<span class="ex-ro">Noi am lucrat în 1990?</span></li></ol></td>
+            <td><ol class="ex-list"><li>Didn't we work yesterday?<span class="ex-ro">Noi nu am lucrat ieri?</span></li><li>Didn't we work last Friday?<span class="ex-ro">Noi nu am lucrat vineri trecut?</span></li><li>Didn't we work in 1990?<span class="ex-ro">Noi nu am lucrat în 1990?</span></li></ol></td>
           </tr>
         </tbody>
       </table>
@@ -602,7 +664,7 @@
         <p class="tense-desc">Focus is on the action, not on the person who does it.</p>
         <p class="tense-form"><strong>Formă:</strong> was/were + V3</p>
         <p class="kw-label"><strong>Cuvinte cheie (Key Words):</strong></p>
-        <p class="kw-note">— aceleași cuvinte cheie ca la Past Simple</p>
+        <p class="kw-note">— same key words as Past Simple</p>
         <table class="example-table">
         <thead>
           <tr>
@@ -616,24 +678,24 @@
         <tbody>
           <tr>
             <td class="pronoun-cell">I</td>
-            <td><ol class="ex-list"><li>I was trained yesterday.</li><li>I was trained last week.</li><li>I was trained in 2020.</li></ol></td>
-            <td><ol class="ex-list"><li>I wasn't trained yesterday.</li><li>I wasn't trained last week.</li><li>I wasn't trained in 2020.</li></ol></td>
-            <td><ol class="ex-list"><li>Was I trained yesterday?</li><li>Was I trained last week?</li><li>Was I trained in 2020?</li></ol></td>
-            <td><ol class="ex-list"><li>Wasn't I trained yesterday?</li><li>Wasn't I trained last week?</li><li>Wasn't I trained in 2020?</li></ol></td>
+            <td><ol class="ex-list"><li>I was trained yesterday.<span class="ex-ro">Eu am fost instruit ieri.</span></li><li>I was trained last week.<span class="ex-ro">Eu am fost instruit săptămâna trecută.</span></li><li>I was trained in 2020.<span class="ex-ro">Eu am fost instruit în 2020.</span></li></ol></td>
+            <td><ol class="ex-list"><li>I wasn't trained yesterday.<span class="ex-ro">Eu nu am fost instruit ieri.</span></li><li>I wasn't trained last week.<span class="ex-ro">Eu nu am fost instruit săptămâna trecută.</span></li><li>I wasn't trained in 2020.<span class="ex-ro">Eu nu am fost instruit în 2020.</span></li></ol></td>
+            <td><ol class="ex-list"><li>Was I trained yesterday?<span class="ex-ro">Eu am fost instruit ieri?</span></li><li>Was I trained last week?<span class="ex-ro">Eu am fost instruit săptămâna trecută?</span></li><li>Was I trained in 2020?<span class="ex-ro">Eu am fost instruit în 2020?</span></li></ol></td>
+            <td><ol class="ex-list"><li>Wasn't I trained yesterday?<span class="ex-ro">Eu nu am fost instruit ieri?</span></li><li>Wasn't I trained last week?<span class="ex-ro">Eu nu am fost instruit săptămâna trecută?</span></li><li>Wasn't I trained in 2020?<span class="ex-ro">Eu nu am fost instruit în 2020?</span></li></ol></td>
           </tr>
           <tr>
             <td class="pronoun-cell">She</td>
-            <td><ol class="ex-list"><li>She was trained yesterday.</li><li>She was trained last week.</li><li>She was trained in 2020.</li></ol></td>
-            <td><ol class="ex-list"><li>She wasn't trained yesterday.</li><li>She wasn't trained last week.</li><li>She wasn't trained in 2020.</li></ol></td>
-            <td><ol class="ex-list"><li>Was she trained yesterday?</li><li>Was she trained last week?</li><li>Was she trained in 2020?</li></ol></td>
-            <td><ol class="ex-list"><li>Wasn't she trained yesterday?</li><li>Wasn't she trained last week?</li><li>Wasn't she trained in 2020?</li></ol></td>
+            <td><ol class="ex-list"><li>She was trained yesterday.<span class="ex-ro">Ea a fost instruită ieri.</span></li><li>She was trained last week.<span class="ex-ro">Ea a fost instruită săptămâna trecută.</span></li><li>She was trained in 2020.<span class="ex-ro">Ea a fost instruită în 2020.</span></li></ol></td>
+            <td><ol class="ex-list"><li>She wasn't trained yesterday.<span class="ex-ro">Ea nu a fost instruită ieri.</span></li><li>She wasn't trained last week.<span class="ex-ro">Ea nu a fost instruită săptămâna trecută.</span></li><li>She wasn't trained in 2020.<span class="ex-ro">Ea nu a fost instruită în 2020.</span></li></ol></td>
+            <td><ol class="ex-list"><li>Was she trained yesterday?<span class="ex-ro">Ea a fost instruită ieri?</span></li><li>Was she trained last week?<span class="ex-ro">Ea a fost instruită săptămâna trecută?</span></li><li>Was she trained in 2020?<span class="ex-ro">Ea a fost instruită în 2020?</span></li></ol></td>
+            <td><ol class="ex-list"><li>Wasn't she trained yesterday?<span class="ex-ro">Ea nu a fost instruită ieri?</span></li><li>Wasn't she trained last week?<span class="ex-ro">Ea nu a fost instruită săptămâna trecută?</span></li><li>Wasn't she trained in 2020?<span class="ex-ro">Ea nu a fost instruită în 2020?</span></li></ol></td>
           </tr>
           <tr>
             <td class="pronoun-cell">We</td>
-            <td><ol class="ex-list"><li>We were trained yesterday.</li><li>We were trained last week.</li><li>We were trained in 2020.</li></ol></td>
-            <td><ol class="ex-list"><li>We weren't trained yesterday.</li><li>We weren't trained last week.</li><li>We weren't trained in 2020.</li></ol></td>
-            <td><ol class="ex-list"><li>Were we trained yesterday?</li><li>Were we trained last week?</li><li>Were we trained in 2020?</li></ol></td>
-            <td><ol class="ex-list"><li>Weren't we trained yesterday?</li><li>Weren't we trained last week?</li><li>Weren't we trained in 2020?</li></ol></td>
+            <td><ol class="ex-list"><li>We were trained yesterday.<span class="ex-ro">Noi am fost instruiți ieri.</span></li><li>We were trained last week.<span class="ex-ro">Noi am fost instruiți săptămâna trecută.</span></li><li>We were trained in 2020.<span class="ex-ro">Noi am fost instruiți în 2020.</span></li></ol></td>
+            <td><ol class="ex-list"><li>We weren't trained yesterday.<span class="ex-ro">Noi nu am fost instruiți ieri.</span></li><li>We weren't trained last week.<span class="ex-ro">Noi nu am fost instruiți săptămâna trecută.</span></li><li>We weren't trained in 2020.<span class="ex-ro">Noi nu am fost instruiți în 2020.</span></li></ol></td>
+            <td><ol class="ex-list"><li>Were we trained yesterday?<span class="ex-ro">Noi am fost instruiți ieri?</span></li><li>Were we trained last week?<span class="ex-ro">Noi am fost instruiți săptămâna trecută?</span></li><li>Were we trained in 2020?<span class="ex-ro">Noi am fost instruiți în 2020?</span></li></ol></td>
+            <td><ol class="ex-list"><li>Weren't we trained yesterday?<span class="ex-ro">Noi nu am fost instruiți ieri?</span></li><li>Weren't we trained last week?<span class="ex-ro">Noi nu am fost instruiți săptămâna trecută?</span></li><li>Weren't we trained in 2020?<span class="ex-ro">Noi nu am fost instruiți în 2020?</span></li></ol></td>
           </tr>
         </tbody>
       </table>
@@ -663,24 +725,24 @@
         <tbody>
           <tr>
             <td class="pronoun-cell">I</td>
-            <td><ol class="ex-list"><li>I was working all morning.</li><li>I was working the whole afternoon.</li><li>I was working the entire week.</li></ol></td>
-            <td><ol class="ex-list"><li>I wasn't working all morning.</li><li>I wasn't working the whole afternoon.</li><li>I wasn't working the entire week.</li></ol></td>
-            <td><ol class="ex-list"><li>Was I working all morning?</li><li>Was I working the whole afternoon?</li><li>Was I working the entire week?</li></ol></td>
-            <td><ol class="ex-list"><li>Wasn't I working all morning?</li><li>Wasn't I working the whole afternoon?</li><li>Wasn't I working the entire week?</li></ol></td>
+            <td><ol class="ex-list"><li>I was working all morning.<span class="ex-ro">Eu lucram toată dimineața.</span></li><li>I was working the whole afternoon.<span class="ex-ro">Eu lucram toată după-amiaza.</span></li><li>I was working the entire week.<span class="ex-ro">Eu lucram toată săptămâna.</span></li></ol></td>
+            <td><ol class="ex-list"><li>I wasn't working all morning.<span class="ex-ro">Eu nu lucram toată dimineața.</span></li><li>I wasn't working the whole afternoon.<span class="ex-ro">Eu nu lucram toată după-amiaza.</span></li><li>I wasn't working the entire week.<span class="ex-ro">Eu nu lucram toată săptămâna.</span></li></ol></td>
+            <td><ol class="ex-list"><li>Was I working all morning?<span class="ex-ro">Eu lucram toată dimineața?</span></li><li>Was I working the whole afternoon?<span class="ex-ro">Eu lucram toată după-amiaza?</span></li><li>Was I working the entire week?<span class="ex-ro">Eu lucram toată săptămâna?</span></li></ol></td>
+            <td><ol class="ex-list"><li>Wasn't I working all morning?<span class="ex-ro">Eu nu lucram toată dimineața?</span></li><li>Wasn't I working the whole afternoon?<span class="ex-ro">Eu nu lucram toată după-amiaza?</span></li><li>Wasn't I working the entire week?<span class="ex-ro">Eu nu lucram toată săptămâna?</span></li></ol></td>
           </tr>
           <tr>
             <td class="pronoun-cell">She</td>
-            <td><ol class="ex-list"><li>She was working all morning.</li><li>She was working the whole afternoon.</li><li>She was working the entire week.</li></ol></td>
-            <td><ol class="ex-list"><li>She wasn't working all morning.</li><li>She wasn't working the whole afternoon.</li><li>She wasn't working the entire week.</li></ol></td>
-            <td><ol class="ex-list"><li>Was she working all morning?</li><li>Was she working the whole afternoon?</li><li>Was she working the entire week?</li></ol></td>
-            <td><ol class="ex-list"><li>Wasn't she working all morning?</li><li>Wasn't she working the whole afternoon?</li><li>Wasn't she working the entire week?</li></ol></td>
+            <td><ol class="ex-list"><li>She was working all morning.<span class="ex-ro">Ea lucra toată dimineața.</span></li><li>She was working the whole afternoon.<span class="ex-ro">Ea lucra toată după-amiaza.</span></li><li>She was working the entire week.<span class="ex-ro">Ea lucra toată săptămâna.</span></li></ol></td>
+            <td><ol class="ex-list"><li>She wasn't working all morning.<span class="ex-ro">Ea nu lucra toată dimineața.</span></li><li>She wasn't working the whole afternoon.<span class="ex-ro">Ea nu lucra toată după-amiaza.</span></li><li>She wasn't working the entire week.<span class="ex-ro">Ea nu lucra toată săptămâna.</span></li></ol></td>
+            <td><ol class="ex-list"><li>Was she working all morning?<span class="ex-ro">Ea lucra toată dimineața?</span></li><li>Was she working the whole afternoon?<span class="ex-ro">Ea lucra toată după-amiaza?</span></li><li>Was she working the entire week?<span class="ex-ro">Ea lucra toată săptămâna?</span></li></ol></td>
+            <td><ol class="ex-list"><li>Wasn't she working all morning?<span class="ex-ro">Ea nu lucra toată dimineața?</span></li><li>Wasn't she working the whole afternoon?<span class="ex-ro">Ea nu lucra toată după-amiaza?</span></li><li>Wasn't she working the entire week?<span class="ex-ro">Ea nu lucra toată săptămâna?</span></li></ol></td>
           </tr>
           <tr>
             <td class="pronoun-cell">We</td>
-            <td><ol class="ex-list"><li>We were working all morning.</li><li>We were working the whole afternoon.</li><li>We were working the entire week.</li></ol></td>
-            <td><ol class="ex-list"><li>We weren't working all morning.</li><li>We weren't working the whole afternoon.</li><li>We weren't working the entire week.</li></ol></td>
-            <td><ol class="ex-list"><li>Were we working all morning?</li><li>Were we working the whole afternoon?</li><li>Were we working the entire week?</li></ol></td>
-            <td><ol class="ex-list"><li>Weren't we working all morning?</li><li>Weren't we working the whole afternoon?</li><li>Weren't we working the entire week?</li></ol></td>
+            <td><ol class="ex-list"><li>We were working all morning.<span class="ex-ro">Noi lucram toată dimineața.</span></li><li>We were working the whole afternoon.<span class="ex-ro">Noi lucram toată după-amiaza.</span></li><li>We were working the entire week.<span class="ex-ro">Noi lucram toată săptămâna.</span></li></ol></td>
+            <td><ol class="ex-list"><li>We weren't working all morning.<span class="ex-ro">Noi nu lucram toată dimineața.</span></li><li>We weren't working the whole afternoon.<span class="ex-ro">Noi nu lucram toată după-amiaza.</span></li><li>We weren't working the entire week.<span class="ex-ro">Noi nu lucram toată săptămâna.</span></li></ol></td>
+            <td><ol class="ex-list"><li>Were we working all morning?<span class="ex-ro">Noi lucram toată dimineața?</span></li><li>Were we working the whole afternoon?<span class="ex-ro">Noi lucram toată după-amiaza?</span></li><li>Were we working the entire week?<span class="ex-ro">Noi lucram toată săptămâna?</span></li></ol></td>
+            <td><ol class="ex-list"><li>Weren't we working all morning?<span class="ex-ro">Noi nu lucram toată dimineața?</span></li><li>Weren't we working the whole afternoon?<span class="ex-ro">Noi nu lucram toată după-amiaza?</span></li><li>Weren't we working the entire week?<span class="ex-ro">Noi nu lucram toată săptămâna?</span></li></ol></td>
           </tr>
         </tbody>
       </table>
@@ -696,7 +758,7 @@
         <p class="tense-desc">Action completed before another action or moment in the past.</p>
         <p class="tense-form"><strong>Formă:</strong> had + V3</p>
         <p class="kw-label"><strong>Cuvinte cheie (Key Words):</strong></p>
-        <p class="kw-note">— nespecificat în sursă; frecvent: already, before, by the time</p>
+        <p class="kw-note">— not specified in the source material; commonly used: already, before, by the time</p>
         <table class="example-table">
         <thead>
           <tr>
@@ -710,24 +772,24 @@
         <tbody>
           <tr>
             <td class="pronoun-cell">I</td>
-            <td><ol class="ex-list"><li>I had already worked.</li><li>I had worked before the meeting.</li><li>I had worked by 6 PM.</li></ol></td>
-            <td><ol class="ex-list"><li>I hadn't already worked.</li><li>I hadn't worked before the meeting.</li><li>I hadn't worked by 6 PM.</li></ol></td>
-            <td><ol class="ex-list"><li>Had I already worked?</li><li>Had I worked before the meeting?</li><li>Had I worked by 6 PM?</li></ol></td>
-            <td><ol class="ex-list"><li>Hadn't I already worked?</li><li>Hadn't I worked before the meeting?</li><li>Hadn't I worked by 6 PM?</li></ol></td>
+            <td><ol class="ex-list"><li>I had already worked.<span class="ex-ro">Eu lucrasem deja.</span></li><li>I had worked before the meeting.<span class="ex-ro">Eu lucrasem înainte de ședință.</span></li><li>I had worked by 6 PM.<span class="ex-ro">Eu lucrasem până la ora 18:00.</span></li></ol></td>
+            <td><ol class="ex-list"><li>I hadn't already worked.<span class="ex-ro">Eu nu lucrasem deja.</span></li><li>I hadn't worked before the meeting.<span class="ex-ro">Eu nu lucrasem înainte de ședință.</span></li><li>I hadn't worked by 6 PM.<span class="ex-ro">Eu nu lucrasem până la ora 18:00.</span></li></ol></td>
+            <td><ol class="ex-list"><li>Had I already worked?<span class="ex-ro">Eu lucrasem deja?</span></li><li>Had I worked before the meeting?<span class="ex-ro">Eu lucrasem înainte de ședință?</span></li><li>Had I worked by 6 PM?<span class="ex-ro">Eu lucrasem până la ora 18:00?</span></li></ol></td>
+            <td><ol class="ex-list"><li>Hadn't I already worked?<span class="ex-ro">Eu nu lucrasem deja?</span></li><li>Hadn't I worked before the meeting?<span class="ex-ro">Eu nu lucrasem înainte de ședință?</span></li><li>Hadn't I worked by 6 PM?<span class="ex-ro">Eu nu lucrasem până la ora 18:00?</span></li></ol></td>
           </tr>
           <tr>
             <td class="pronoun-cell">She</td>
-            <td><ol class="ex-list"><li>She had already worked.</li><li>She had worked before the meeting.</li><li>She had worked by 6 PM.</li></ol></td>
-            <td><ol class="ex-list"><li>She hadn't already worked.</li><li>She hadn't worked before the meeting.</li><li>She hadn't worked by 6 PM.</li></ol></td>
-            <td><ol class="ex-list"><li>Had she already worked?</li><li>Had she worked before the meeting?</li><li>Had she worked by 6 PM?</li></ol></td>
-            <td><ol class="ex-list"><li>Hadn't she already worked?</li><li>Hadn't she worked before the meeting?</li><li>Hadn't she worked by 6 PM?</li></ol></td>
+            <td><ol class="ex-list"><li>She had already worked.<span class="ex-ro">Ea lucrase deja.</span></li><li>She had worked before the meeting.<span class="ex-ro">Ea lucrase înainte de ședință.</span></li><li>She had worked by 6 PM.<span class="ex-ro">Ea lucrase până la ora 18:00.</span></li></ol></td>
+            <td><ol class="ex-list"><li>She hadn't already worked.<span class="ex-ro">Ea nu lucrase deja.</span></li><li>She hadn't worked before the meeting.<span class="ex-ro">Ea nu lucrase înainte de ședință.</span></li><li>She hadn't worked by 6 PM.<span class="ex-ro">Ea nu lucrase până la ora 18:00.</span></li></ol></td>
+            <td><ol class="ex-list"><li>Had she already worked?<span class="ex-ro">Ea lucrase deja?</span></li><li>Had she worked before the meeting?<span class="ex-ro">Ea lucrase înainte de ședință?</span></li><li>Had she worked by 6 PM?<span class="ex-ro">Ea lucrase până la ora 18:00?</span></li></ol></td>
+            <td><ol class="ex-list"><li>Hadn't she already worked?<span class="ex-ro">Ea nu lucrase deja?</span></li><li>Hadn't she worked before the meeting?<span class="ex-ro">Ea nu lucrase înainte de ședință?</span></li><li>Hadn't she worked by 6 PM?<span class="ex-ro">Ea nu lucrase până la ora 18:00?</span></li></ol></td>
           </tr>
           <tr>
             <td class="pronoun-cell">We</td>
-            <td><ol class="ex-list"><li>We had already worked.</li><li>We had worked before the meeting.</li><li>We had worked by 6 PM.</li></ol></td>
-            <td><ol class="ex-list"><li>We hadn't already worked.</li><li>We hadn't worked before the meeting.</li><li>We hadn't worked by 6 PM.</li></ol></td>
-            <td><ol class="ex-list"><li>Had we already worked?</li><li>Had we worked before the meeting?</li><li>Had we worked by 6 PM?</li></ol></td>
-            <td><ol class="ex-list"><li>Hadn't we already worked?</li><li>Hadn't we worked before the meeting?</li><li>Hadn't we worked by 6 PM?</li></ol></td>
+            <td><ol class="ex-list"><li>We had already worked.<span class="ex-ro">Noi lucrasem deja.</span></li><li>We had worked before the meeting.<span class="ex-ro">Noi lucrasem înainte de ședință.</span></li><li>We had worked by 6 PM.<span class="ex-ro">Noi lucrasem până la ora 18:00.</span></li></ol></td>
+            <td><ol class="ex-list"><li>We hadn't already worked.<span class="ex-ro">Noi nu lucrasem deja.</span></li><li>We hadn't worked before the meeting.<span class="ex-ro">Noi nu lucrasem înainte de ședință.</span></li><li>We hadn't worked by 6 PM.<span class="ex-ro">Noi nu lucrasem până la ora 18:00.</span></li></ol></td>
+            <td><ol class="ex-list"><li>Had we already worked?<span class="ex-ro">Noi lucrasem deja?</span></li><li>Had we worked before the meeting?<span class="ex-ro">Noi lucrasem înainte de ședință?</span></li><li>Had we worked by 6 PM?<span class="ex-ro">Noi lucrasem până la ora 18:00?</span></li></ol></td>
+            <td><ol class="ex-list"><li>Hadn't we already worked?<span class="ex-ro">Noi nu lucrasem deja?</span></li><li>Hadn't we worked before the meeting?<span class="ex-ro">Noi nu lucrasem înainte de ședință?</span></li><li>Hadn't we worked by 6 PM?<span class="ex-ro">Noi nu lucrasem până la ora 18:00?</span></li></ol></td>
           </tr>
         </tbody>
       </table>
@@ -757,24 +819,24 @@
         <tbody>
           <tr>
             <td class="pronoun-cell">I</td>
-            <td><ol class="ex-list"><li>I will work tomorrow.</li><li>I will work next week.</li><li>I will work in a year.</li></ol></td>
-            <td><ol class="ex-list"><li>I won't work tomorrow.</li><li>I won't work next week.</li><li>I won't work in a year.</li></ol></td>
-            <td><ol class="ex-list"><li>Will I work tomorrow?</li><li>Will I work next week?</li><li>Will I work in a year?</li></ol></td>
-            <td><ol class="ex-list"><li>Won't I work tomorrow?</li><li>Won't I work next week?</li><li>Won't I work in a year?</li></ol></td>
+            <td><ol class="ex-list"><li>I will work tomorrow.<span class="ex-ro">Eu voi lucra mâine.</span></li><li>I will work next week.<span class="ex-ro">Eu voi lucra săptămâna viitoare.</span></li><li>I will work in a year.<span class="ex-ro">Eu voi lucra peste un an.</span></li></ol></td>
+            <td><ol class="ex-list"><li>I won't work tomorrow.<span class="ex-ro">Eu nu voi lucra mâine.</span></li><li>I won't work next week.<span class="ex-ro">Eu nu voi lucra săptămâna viitoare.</span></li><li>I won't work in a year.<span class="ex-ro">Eu nu voi lucra peste un an.</span></li></ol></td>
+            <td><ol class="ex-list"><li>Will I work tomorrow?<span class="ex-ro">Eu voi lucra mâine?</span></li><li>Will I work next week?<span class="ex-ro">Eu voi lucra săptămâna viitoare?</span></li><li>Will I work in a year?<span class="ex-ro">Eu voi lucra peste un an?</span></li></ol></td>
+            <td><ol class="ex-list"><li>Won't I work tomorrow?<span class="ex-ro">Eu nu voi lucra mâine?</span></li><li>Won't I work next week?<span class="ex-ro">Eu nu voi lucra săptămâna viitoare?</span></li><li>Won't I work in a year?<span class="ex-ro">Eu nu voi lucra peste un an?</span></li></ol></td>
           </tr>
           <tr>
             <td class="pronoun-cell">She</td>
-            <td><ol class="ex-list"><li>She will work tomorrow.</li><li>She will work next week.</li><li>She will work in a year.</li></ol></td>
-            <td><ol class="ex-list"><li>She won't work tomorrow.</li><li>She won't work next week.</li><li>She won't work in a year.</li></ol></td>
-            <td><ol class="ex-list"><li>Will she work tomorrow?</li><li>Will she work next week?</li><li>Will she work in a year?</li></ol></td>
-            <td><ol class="ex-list"><li>Won't she work tomorrow?</li><li>Won't she work next week?</li><li>Won't she work in a year?</li></ol></td>
+            <td><ol class="ex-list"><li>She will work tomorrow.<span class="ex-ro">Ea va lucra mâine.</span></li><li>She will work next week.<span class="ex-ro">Ea va lucra săptămâna viitoare.</span></li><li>She will work in a year.<span class="ex-ro">Ea va lucra peste un an.</span></li></ol></td>
+            <td><ol class="ex-list"><li>She won't work tomorrow.<span class="ex-ro">Ea nu va lucra mâine.</span></li><li>She won't work next week.<span class="ex-ro">Ea nu va lucra săptămâna viitoare.</span></li><li>She won't work in a year.<span class="ex-ro">Ea nu va lucra peste un an.</span></li></ol></td>
+            <td><ol class="ex-list"><li>Will she work tomorrow?<span class="ex-ro">Ea va lucra mâine?</span></li><li>Will she work next week?<span class="ex-ro">Ea va lucra săptămâna viitoare?</span></li><li>Will she work in a year?<span class="ex-ro">Ea va lucra peste un an?</span></li></ol></td>
+            <td><ol class="ex-list"><li>Won't she work tomorrow?<span class="ex-ro">Ea nu va lucra mâine?</span></li><li>Won't she work next week?<span class="ex-ro">Ea nu va lucra săptămâna viitoare?</span></li><li>Won't she work in a year?<span class="ex-ro">Ea nu va lucra peste un an?</span></li></ol></td>
           </tr>
           <tr>
             <td class="pronoun-cell">We</td>
-            <td><ol class="ex-list"><li>We will work tomorrow.</li><li>We will work next week.</li><li>We will work in a year.</li></ol></td>
-            <td><ol class="ex-list"><li>We won't work tomorrow.</li><li>We won't work next week.</li><li>We won't work in a year.</li></ol></td>
-            <td><ol class="ex-list"><li>Will we work tomorrow?</li><li>Will we work next week?</li><li>Will we work in a year?</li></ol></td>
-            <td><ol class="ex-list"><li>Won't we work tomorrow?</li><li>Won't we work next week?</li><li>Won't we work in a year?</li></ol></td>
+            <td><ol class="ex-list"><li>We will work tomorrow.<span class="ex-ro">Noi vom lucra mâine.</span></li><li>We will work next week.<span class="ex-ro">Noi vom lucra săptămâna viitoare.</span></li><li>We will work in a year.<span class="ex-ro">Noi vom lucra peste un an.</span></li></ol></td>
+            <td><ol class="ex-list"><li>We won't work tomorrow.<span class="ex-ro">Noi nu vom lucra mâine.</span></li><li>We won't work next week.<span class="ex-ro">Noi nu vom lucra săptămâna viitoare.</span></li><li>We won't work in a year.<span class="ex-ro">Noi nu vom lucra peste un an.</span></li></ol></td>
+            <td><ol class="ex-list"><li>Will we work tomorrow?<span class="ex-ro">Noi vom lucra mâine?</span></li><li>Will we work next week?<span class="ex-ro">Noi vom lucra săptămâna viitoare?</span></li><li>Will we work in a year?<span class="ex-ro">Noi vom lucra peste un an?</span></li></ol></td>
+            <td><ol class="ex-list"><li>Won't we work tomorrow?<span class="ex-ro">Noi nu vom lucra mâine?</span></li><li>Won't we work next week?<span class="ex-ro">Noi nu vom lucra săptămâna viitoare?</span></li><li>Won't we work in a year?<span class="ex-ro">Noi nu vom lucra peste un an?</span></li></ol></td>
           </tr>
         </tbody>
       </table>
@@ -790,7 +852,7 @@
         <p class="tense-desc">Focus is on the action, not on the person/doer.</p>
         <p class="tense-form"><strong>Formă:</strong> will + be + V3</p>
         <p class="kw-label"><strong>Cuvinte cheie (Key Words):</strong></p>
-        <p class="kw-note">— aceleași cuvinte cheie ca la Future Simple</p>
+        <p class="kw-note">— same key words as Future Simple</p>
         <table class="example-table">
         <thead>
           <tr>
@@ -804,24 +866,24 @@
         <tbody>
           <tr>
             <td class="pronoun-cell">I</td>
-            <td><ol class="ex-list"><li>I will be trained tomorrow.</li><li>I will be trained next month.</li><li>I will be trained soon.</li></ol></td>
-            <td><ol class="ex-list"><li>I won't be trained tomorrow.</li><li>I won't be trained next month.</li><li>I won't be trained soon.</li></ol></td>
-            <td><ol class="ex-list"><li>Will I be trained tomorrow?</li><li>Will I be trained next month?</li><li>Will I be trained soon?</li></ol></td>
-            <td><ol class="ex-list"><li>Won't I be trained tomorrow?</li><li>Won't I be trained next month?</li><li>Won't I be trained soon?</li></ol></td>
+            <td><ol class="ex-list"><li>I will be trained tomorrow.<span class="ex-ro">Eu voi fi instruit mâine.</span></li><li>I will be trained next month.<span class="ex-ro">Eu voi fi instruit luna viitoare.</span></li><li>I will be trained soon.<span class="ex-ro">Eu voi fi instruit în curând.</span></li></ol></td>
+            <td><ol class="ex-list"><li>I won't be trained tomorrow.<span class="ex-ro">Eu nu voi fi instruit mâine.</span></li><li>I won't be trained next month.<span class="ex-ro">Eu nu voi fi instruit luna viitoare.</span></li><li>I won't be trained soon.<span class="ex-ro">Eu nu voi fi instruit în curând.</span></li></ol></td>
+            <td><ol class="ex-list"><li>Will I be trained tomorrow?<span class="ex-ro">Eu voi fi instruit mâine?</span></li><li>Will I be trained next month?<span class="ex-ro">Eu voi fi instruit luna viitoare?</span></li><li>Will I be trained soon?<span class="ex-ro">Eu voi fi instruit în curând?</span></li></ol></td>
+            <td><ol class="ex-list"><li>Won't I be trained tomorrow?<span class="ex-ro">Eu nu voi fi instruit mâine?</span></li><li>Won't I be trained next month?<span class="ex-ro">Eu nu voi fi instruit luna viitoare?</span></li><li>Won't I be trained soon?<span class="ex-ro">Eu nu voi fi instruit în curând?</span></li></ol></td>
           </tr>
           <tr>
             <td class="pronoun-cell">She</td>
-            <td><ol class="ex-list"><li>She will be trained tomorrow.</li><li>She will be trained next month.</li><li>She will be trained soon.</li></ol></td>
-            <td><ol class="ex-list"><li>She won't be trained tomorrow.</li><li>She won't be trained next month.</li><li>She won't be trained soon.</li></ol></td>
-            <td><ol class="ex-list"><li>Will she be trained tomorrow?</li><li>Will she be trained next month?</li><li>Will she be trained soon?</li></ol></td>
-            <td><ol class="ex-list"><li>Won't she be trained tomorrow?</li><li>Won't she be trained next month?</li><li>Won't she be trained soon?</li></ol></td>
+            <td><ol class="ex-list"><li>She will be trained tomorrow.<span class="ex-ro">Ea va fi instruită mâine.</span></li><li>She will be trained next month.<span class="ex-ro">Ea va fi instruită luna viitoare.</span></li><li>She will be trained soon.<span class="ex-ro">Ea va fi instruită în curând.</span></li></ol></td>
+            <td><ol class="ex-list"><li>She won't be trained tomorrow.<span class="ex-ro">Ea nu va fi instruită mâine.</span></li><li>She won't be trained next month.<span class="ex-ro">Ea nu va fi instruită luna viitoare.</span></li><li>She won't be trained soon.<span class="ex-ro">Ea nu va fi instruită în curând.</span></li></ol></td>
+            <td><ol class="ex-list"><li>Will she be trained tomorrow?<span class="ex-ro">Ea va fi instruită mâine?</span></li><li>Will she be trained next month?<span class="ex-ro">Ea va fi instruită luna viitoare?</span></li><li>Will she be trained soon?<span class="ex-ro">Ea va fi instruită în curând?</span></li></ol></td>
+            <td><ol class="ex-list"><li>Won't she be trained tomorrow?<span class="ex-ro">Ea nu va fi instruită mâine?</span></li><li>Won't she be trained next month?<span class="ex-ro">Ea nu va fi instruită luna viitoare?</span></li><li>Won't she be trained soon?<span class="ex-ro">Ea nu va fi instruită în curând?</span></li></ol></td>
           </tr>
           <tr>
             <td class="pronoun-cell">We</td>
-            <td><ol class="ex-list"><li>We will be trained tomorrow.</li><li>We will be trained next month.</li><li>We will be trained soon.</li></ol></td>
-            <td><ol class="ex-list"><li>We won't be trained tomorrow.</li><li>We won't be trained next month.</li><li>We won't be trained soon.</li></ol></td>
-            <td><ol class="ex-list"><li>Will we be trained tomorrow?</li><li>Will we be trained next month?</li><li>Will we be trained soon?</li></ol></td>
-            <td><ol class="ex-list"><li>Won't we be trained tomorrow?</li><li>Won't we be trained next month?</li><li>Won't we be trained soon?</li></ol></td>
+            <td><ol class="ex-list"><li>We will be trained tomorrow.<span class="ex-ro">Noi vom fi instruiți mâine.</span></li><li>We will be trained next month.<span class="ex-ro">Noi vom fi instruiți luna viitoare.</span></li><li>We will be trained soon.<span class="ex-ro">Noi vom fi instruiți în curând.</span></li></ol></td>
+            <td><ol class="ex-list"><li>We won't be trained tomorrow.<span class="ex-ro">Noi nu vom fi instruiți mâine.</span></li><li>We won't be trained next month.<span class="ex-ro">Noi nu vom fi instruiți luna viitoare.</span></li><li>We won't be trained soon.<span class="ex-ro">Noi nu vom fi instruiți în curând.</span></li></ol></td>
+            <td><ol class="ex-list"><li>Will we be trained tomorrow?<span class="ex-ro">Noi vom fi instruiți mâine?</span></li><li>Will we be trained next month?<span class="ex-ro">Noi vom fi instruiți luna viitoare?</span></li><li>Will we be trained soon?<span class="ex-ro">Noi vom fi instruiți în curând?</span></li></ol></td>
+            <td><ol class="ex-list"><li>Won't we be trained tomorrow?<span class="ex-ro">Noi nu vom fi instruiți mâine?</span></li><li>Won't we be trained next month?<span class="ex-ro">Noi nu vom fi instruiți luna viitoare?</span></li><li>Won't we be trained soon?<span class="ex-ro">Noi nu vom fi instruiți în curând?</span></li></ol></td>
           </tr>
         </tbody>
       </table>
@@ -851,24 +913,24 @@
         <tbody>
           <tr>
             <td class="pronoun-cell">I</td>
-            <td><ol class="ex-list"><li>I will be working tomorrow at this time.</li><li>I will be working next week.</li><li>I will be working in one year.</li></ol></td>
-            <td><ol class="ex-list"><li>I won't be working tomorrow at this time.</li><li>I won't be working next week.</li><li>I won't be working in one year.</li></ol></td>
-            <td><ol class="ex-list"><li>Will I be working tomorrow at this time?</li><li>Will I be working next week?</li><li>Will I be working in one year?</li></ol></td>
-            <td><ol class="ex-list"><li>Won't I be working tomorrow at this time?</li><li>Won't I be working next week?</li><li>Won't I be working in one year?</li></ol></td>
+            <td><ol class="ex-list"><li>I will be working tomorrow at this time.<span class="ex-ro">Eu voi lucra mâine la aceeași oră.</span></li><li>I will be working next week.<span class="ex-ro">Eu voi lucra săptămâna viitoare.</span></li><li>I will be working in one year.<span class="ex-ro">Eu voi lucra peste un an.</span></li></ol></td>
+            <td><ol class="ex-list"><li>I won't be working tomorrow at this time.<span class="ex-ro">Eu nu voi lucra mâine la aceeași oră.</span></li><li>I won't be working next week.<span class="ex-ro">Eu nu voi lucra săptămâna viitoare.</span></li><li>I won't be working in one year.<span class="ex-ro">Eu nu voi lucra peste un an.</span></li></ol></td>
+            <td><ol class="ex-list"><li>Will I be working tomorrow at this time?<span class="ex-ro">Eu voi lucra mâine la aceeași oră?</span></li><li>Will I be working next week?<span class="ex-ro">Eu voi lucra săptămâna viitoare?</span></li><li>Will I be working in one year?<span class="ex-ro">Eu voi lucra peste un an?</span></li></ol></td>
+            <td><ol class="ex-list"><li>Won't I be working tomorrow at this time?<span class="ex-ro">Eu nu voi lucra mâine la aceeași oră?</span></li><li>Won't I be working next week?<span class="ex-ro">Eu nu voi lucra săptămâna viitoare?</span></li><li>Won't I be working in one year?<span class="ex-ro">Eu nu voi lucra peste un an?</span></li></ol></td>
           </tr>
           <tr>
             <td class="pronoun-cell">She</td>
-            <td><ol class="ex-list"><li>She will be working tomorrow at this time.</li><li>She will be working next week.</li><li>She will be working in one year.</li></ol></td>
-            <td><ol class="ex-list"><li>She won't be working tomorrow at this time.</li><li>She won't be working next week.</li><li>She won't be working in one year.</li></ol></td>
-            <td><ol class="ex-list"><li>Will she be working tomorrow at this time?</li><li>Will she be working next week?</li><li>Will she be working in one year?</li></ol></td>
-            <td><ol class="ex-list"><li>Won't she be working tomorrow at this time?</li><li>Won't she be working next week?</li><li>Won't she be working in one year?</li></ol></td>
+            <td><ol class="ex-list"><li>She will be working tomorrow at this time.<span class="ex-ro">Ea va lucra mâine la aceeași oră.</span></li><li>She will be working next week.<span class="ex-ro">Ea va lucra săptămâna viitoare.</span></li><li>She will be working in one year.<span class="ex-ro">Ea va lucra peste un an.</span></li></ol></td>
+            <td><ol class="ex-list"><li>She won't be working tomorrow at this time.<span class="ex-ro">Ea nu va lucra mâine la aceeași oră.</span></li><li>She won't be working next week.<span class="ex-ro">Ea nu va lucra săptămâna viitoare.</span></li><li>She won't be working in one year.<span class="ex-ro">Ea nu va lucra peste un an.</span></li></ol></td>
+            <td><ol class="ex-list"><li>Will she be working tomorrow at this time?<span class="ex-ro">Ea va lucra mâine la aceeași oră?</span></li><li>Will she be working next week?<span class="ex-ro">Ea va lucra săptămâna viitoare?</span></li><li>Will she be working in one year?<span class="ex-ro">Ea va lucra peste un an?</span></li></ol></td>
+            <td><ol class="ex-list"><li>Won't she be working tomorrow at this time?<span class="ex-ro">Ea nu va lucra mâine la aceeași oră?</span></li><li>Won't she be working next week?<span class="ex-ro">Ea nu va lucra săptămâna viitoare?</span></li><li>Won't she be working in one year?<span class="ex-ro">Ea nu va lucra peste un an?</span></li></ol></td>
           </tr>
           <tr>
             <td class="pronoun-cell">We</td>
-            <td><ol class="ex-list"><li>We will be working tomorrow at this time.</li><li>We will be working next week.</li><li>We will be working in one year.</li></ol></td>
-            <td><ol class="ex-list"><li>We won't be working tomorrow at this time.</li><li>We won't be working next week.</li><li>We won't be working in one year.</li></ol></td>
-            <td><ol class="ex-list"><li>Will we be working tomorrow at this time?</li><li>Will we be working next week?</li><li>Will we be working in one year?</li></ol></td>
-            <td><ol class="ex-list"><li>Won't we be working tomorrow at this time?</li><li>Won't we be working next week?</li><li>Won't we be working in one year?</li></ol></td>
+            <td><ol class="ex-list"><li>We will be working tomorrow at this time.<span class="ex-ro">Noi vom lucra mâine la aceeași oră.</span></li><li>We will be working next week.<span class="ex-ro">Noi vom lucra săptămâna viitoare.</span></li><li>We will be working in one year.<span class="ex-ro">Noi vom lucra peste un an.</span></li></ol></td>
+            <td><ol class="ex-list"><li>We won't be working tomorrow at this time.<span class="ex-ro">Noi nu vom lucra mâine la aceeași oră.</span></li><li>We won't be working next week.<span class="ex-ro">Noi nu vom lucra săptămâna viitoare.</span></li><li>We won't be working in one year.<span class="ex-ro">Noi nu vom lucra peste un an.</span></li></ol></td>
+            <td><ol class="ex-list"><li>Will we be working tomorrow at this time?<span class="ex-ro">Noi vom lucra mâine la aceeași oră?</span></li><li>Will we be working next week?<span class="ex-ro">Noi vom lucra săptămâna viitoare?</span></li><li>Will we be working in one year?<span class="ex-ro">Noi vom lucra peste un an?</span></li></ol></td>
+            <td><ol class="ex-list"><li>Won't we be working tomorrow at this time?<span class="ex-ro">Noi nu vom lucra mâine la aceeași oră?</span></li><li>Won't we be working next week?<span class="ex-ro">Noi nu vom lucra săptămâna viitoare?</span></li><li>Won't we be working in one year?<span class="ex-ro">Noi nu vom lucra peste un an?</span></li></ol></td>
           </tr>
         </tbody>
       </table>
@@ -1553,9 +1615,13 @@ function escapeHtml(str){
 }
 
 function buildWordTable(items, isTranslation){
-  // Header uses a blue gradient (stepped shades left-to-right, since Word's
-  // renderer supports per-cell background-color reliably; a literal
-  // background-image gradient is also included for viewers that support it).
+  // Header uses solid stepped blue shades left-to-right. Word's HTML renderer
+  // does not reliably support CSS background-image gradients — it can leave
+  // white header text invisible on a white background — so we rely only on
+  // background-color, which always renders correctly.
+  // The header row is wrapped in <thead> (data rows in <tbody>) so Word
+  // recognises it as a repeating header row and pins it at the top of every
+  // printed page the table spans.
   const headerShades = ["#1e3a8a", "#1e40af", "#2563eb", "#3b82f6"];
   const headerLabels = [
     "#",
@@ -1564,23 +1630,25 @@ function buildWordTable(items, isTranslation){
     "Structură / Tip Eroare"
   ];
   const headerWidths = ["5%", "42%", "34%", "19%"];
-  let rows = "<tr>";
+  let theadHtml = "<thead><tr>";
   headerLabels.forEach((label, i) => {
-    rows += `<th style="background-color:${headerShades[i]};background-image:linear-gradient(135deg,#1e3a8a,#3b82f6);color:#ffffff;padding:10px;border:1px solid #1e3a8a;width:${headerWidths[i]};">${label}</th>`;
+    theadHtml += `<th style="background-color:${headerShades[i]};color:#ffffff;padding:10px;border:1px solid #1e3a8a;width:${headerWidths[i]};font-weight:bold;">${label}</th>`;
   });
-  rows += "</tr>";
+  theadHtml += "</tr></thead>";
 
+  let tbodyHtml = "<tbody>";
   items.forEach((item, idx) => {
     const answer = isTranslation ? (userTranslations[item.id] || "—") : (userErrors[item.id] || "—");
     const sentence = isTranslation ? item.romanian : item.err;
-    rows += `<tr>
+    tbodyHtml += `<tr>
       <td style="background-color:#ffffff;padding:9px;border:1px solid #cbd5e1;font-size:11pt;">${idx + 1}</td>
       <td style="background-color:#ffffff;padding:9px;border:1px solid #cbd5e1;font-size:11pt;">${escapeHtml(sentence)}</td>
       <td style="background-color:#ffffff;padding:9px;border:1px solid #cbd5e1;font-size:11pt;">${escapeHtml(answer)}</td>
       <td style="background-color:#ffffff;padding:9px;border:1px solid #cbd5e1;font-size:10pt;">${escapeHtml(item.hint)}</td>
     </tr>`;
   });
-  return `<table style="border-collapse:collapse;width:100%;background-color:#ffffff;">${rows}</table>`;
+  tbodyHtml += "</tbody>";
+  return `<table style="border-collapse:collapse;width:100%;background-color:#ffffff;">${theadHtml}${tbodyHtml}</table>`;
 }
 
 
@@ -1682,7 +1750,7 @@ function generateReportText(){
 function sendEmailClient(){
   const name = document.getElementById("studentName").value || "Student Anonim";
   const teacherNickname = "Teacher Carmen";
-  const recipient = atob("Y3JhaWNhcm1lbkB5YWhvby5jb20="); // hidden from view source at a glance
+  const recipient = atob("am9iY2FybWVuQHlhaG9vLmNvbQ=="); // hidden from view source at a glance
   const answeredCount = currentTranslations.filter(item => (userTranslations[item.id] || "").trim() !== "").length
                       + currentErrors.filter(item => (userErrors[item.id] || "").trim() !== "").length;
   if(answeredCount === 0){
