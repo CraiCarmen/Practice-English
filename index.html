@@ -1304,10 +1304,10 @@ const translationConstructs = [
         en: `The team must ${verb.inf} the new ${theme2} ${objEn.split(' ').slice(-1)[0]} document.`
       };
   }},
-  { hint:"Verb as Adjective (Participle)", build(theme){
+  { hint:"Verb as Adjective (V3)", build(theme){
       const {objEn,objRo,verb} = getRandom(theme);
       return {
-        ro: `${cap(objRo)} (${verb.ro} - participiu) va fi trimis(ă) clientului.`,
+        ro: `${cap(objRo)} (${verb.ro} - V3) va fi trimis(ă) clientului.`,
         en: `The ${verb.pastPart} ${objEn} will be sent to the client.`
       };
   }},
@@ -1410,7 +1410,7 @@ const errorConstructs = [
       const {objEn,verb} = getRandom(theme);
       return `The team was very ${verb.gerund} about the results of the ${objEn}.`; // -ing used instead of -ed for feeling
   }},
-  { hint:"Verb as Adjective (Participle)", build(theme){
+  { hint:"Verb as Adjective (V3)", build(theme){
       const {objEn,verb} = getRandom(theme);
       return `The ${verb.inf} ${objEn} will be sent to the client tomorrow.`; // base verb instead of participle adjective
   }},
