@@ -113,6 +113,24 @@
         h3 {
             font-size: 17px;
         }
+        .audio-fallback-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: linear-gradient(135deg, #fb923c, #ea580c);
+            color: #ffffff;
+            border: none;
+            border-radius: 30px;
+            padding: 12px 20px;
+            font-size: 14px;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 6px 18px -3px rgba(234, 88, 12, 0.5);
+            width: auto;
+            flex: none;
+            min-width: 0;
+        }
         .theme-badge {
             display: inline-block;
             margin-left: auto;
@@ -372,6 +390,9 @@
     </style>
 </head>
 <body>
+
+<audio id="bgAudio" src="verb.mp3" loop preload="auto"></audio>
+<button type="button" id="audioFallbackBtn" class="audio-fallback-btn" onclick="startAudio()" style="display:none;">🔊 Play Audio</button>
 
 <div class="topbar">
     <span class="brand">📘 English Practice Portal</span>
@@ -1111,7 +1132,10 @@ const proVerbRaw = [
   ["structure","a structura"], ["substantiate","a sustine cu dovezi"], ["summarize","a rezuma"],
   ["support","a sprijini"], ["synthesize","a sintetiza"], ["test","a testa"], ["trace","a urmari"],
   ["troubleshoot","a depana",{past:"troubleshot",gerund:"troubleshooting"}], ["validate","a valida"],
-  ["verify","a verifica"], ["withdraw","a retrage",{past:"withdrew",gerund:"withdrawing"}]
+  ["verify","a verifica"], ["withdraw","a retrage",{past:"withdrew",gerund:"withdrawing"}],
+  ["understand","a intelege",{past:"understood",gerund:"understanding"}],
+  ["know","a sti",{past:"knew",gerund:"knowing"}],
+  ["listen","a asculta"]
 ];
 const proVerbs = proVerbRaw.map(([inf,ro,ov]) => Object.assign({ro}, conjugate(inf, ov||{})));
 
@@ -1119,7 +1143,7 @@ const proVerbs = proVerbRaw.map(([inf,ro,ov]) => Object.assign({ro}, conjugate(i
 
 // fix pastPart overrides where needed
 function fixPastPart(list, map){ list.forEach(v=>{ if(map[v.inf]) v.pastPart = map[v.inf]; }); }
-fixPastPart(proVerbs, {withdraw:"withdrawn"});
+fixPastPart(proVerbs, {withdraw:"withdrawn", know:"known"});
 
 // ---------- Theme vocab: subjects & objects (EN/RO pairs) ----------
 const themeVocab = {
@@ -1348,6 +1372,31 @@ const translationConstructs = [
         ro: `(${verb.ro}) ${objRo} este esential pentru echipa.`,
         en: `${cap(verb.gerund)} the ${objEn} is essential for the team.`
       };
+  }},
+  { hint:"Infinitive Passive (to be + V3)", build(theme){
+      const {objEn,objRo} = getRandom(theme);
+      return {
+        ro: `${cap(objRo)} (a intelege - pasiv infinitiv) de intreaga echipa inainte de a incepe.`,
+        en: `The ${objEn} needs to be understood by the whole team before starting.`
+      };
+  }},
+  { hint:"Gerund Noun (-ing)", build(theme){
+      const {objEn,objRo} = getRandom(theme);
+      const templates = [
+        {
+          ro: `(a asculta) cu atentie in timpul sedintelor este esential pentru ${objRo}.`,
+          en: `Listening carefully during meetings is essential for the ${objEn}.`
+        },
+        {
+          ro: `(a intelege) ${objRo} necesita timp si rabdare.`,
+          en: `Understanding the ${objEn} takes time and patience.`
+        },
+        {
+          ro: `(a sti) detaliile despre ${objRo} din timp ajuta echipa sa planifice mai bine.`,
+          en: `Knowing the details about the ${objEn} in advance helps the team plan better.`
+        }
+      ];
+      return pick(templates);
   }},
   { hint:"Adjective ending in -ED", build(theme){
       const {subjEn,subjRo,objEn,objRo,verb} = getRandom(theme);
@@ -1594,7 +1643,7 @@ function buildMultiErrorItem(theme){
   let linkerClose = "";              // correct: no redundant second linker
 
   const categories = shuffleArr(['tense','adjective','noun','adverb','linking']);
-  const chosenCount = 2 + Math.floor(Math.random() * 2); // 2 or 3 simultaneous errors
+  const chosenCount = 3 + Math.floor(Math.random() * 2); // 3 or 4 simultaneous errors
   const chosen = categories.slice(0, chosenCount);
 
   if(chosen.includes('tense')) verbForm = mark(verb.inf);                 // missing past tense marking
@@ -1610,10 +1659,37 @@ function buildMultiErrorItem(theme){
   return { category: actualTheme, hint, err };
 }
 
+// ============ A2 COMPOUND ERROR GENERATOR (2 simple mistakes in one sentence) ============
+const a2CompoundSkeletons = [
+  // Tense (missing agreement / base verb) + Double Negation
+  (o) => `${o.subjEn} ${o.verbForm} the ${o.objEn} and ${o.doubleNeg} time to finish it ${o.timePhrase}.`,
+  (o) => `${o.subjEn} ${o.verbForm} the ${o.objEn}, but ${o.doubleNeg} help from the team ${o.timePhrase}.`,
+];
+function buildA2CompoundErrorItem(theme){
+  const actualTheme = theme==='All' ? pick(themesList()) : theme;
+  const {subjEn, objEn, verb} = getRandom(actualTheme);
+  const timePhrase = pick(timeExpr.past.concat(timeExpr.present));
+  const doubleNegOptions = ["don't have no", "doesn't have no", "didn't have no"];
+  const skeleton = pick(a2CompoundSkeletons);
+  const err = cap(skeleton({
+    subjEn,
+    objEn,
+    verbForm: mark(verb.inf),           // tense error: base form instead of correct conjugated/past form
+    doubleNeg: mark(pick(doubleNegOptions)), // double negation error
+    timePhrase
+  }));
+  return { category: actualTheme, hint: "Multiple Errors: Tense + Double Negation", err };
+}
+
 function buildErrorItem(theme){
-  // A2: always use simple, single-focus foundational errors (no compound
-  // multi-error sentences, which are too advanced for elementary learners).
+  // A2: mix simple compound errors (2 elementary mistakes in one sentence,
+  // e.g. wrong verb form + double negation) with single-focus foundational
+  // errors, so A2 sentences also practise spotting more than one mistake
+  // without reaching B1-level complexity.
   if(currentLevel === 'A2'){
+    if(Math.random() < 0.65){
+      return buildA2CompoundErrorItem(theme);
+    }
     const actualTheme = theme==='All' ? pick(themesList()) : theme;
     const pool = errorConstructs.filter(c => A2_ERROR_HINTS.has(c.hint));
     const c = pick(pool);
@@ -1856,20 +1932,20 @@ function downloadWordDoc(){
 
 // ============ EMAIL EXPORT (recipient hidden behind "Teacher Carmen") ============
 // Only the questions the student actually answered are included.
-function padCell(str, width, noTruncate){
+function padCell(str, width){
   str = String(str);
-  if(str.length > width){
-    return noTruncate ? str : (str.slice(0, width - 1) + "…");
-  }
+  // Never truncate — full sentences and full student answers must always be
+  // shown in the email report. Padding is only added for shorter cells so
+  // rows still line up reasonably when content fits within the column width.
+  if(str.length >= width) return str;
   return str + " ".repeat(width - str.length);
 }
 
-function buildTextTable(headers, widths, rows, noTruncateCols){
-  noTruncateCols = noTruncateCols || [];
+function buildTextTable(headers, widths, rows){
   let out = headers.map((h, i) => padCell(h, widths[i])).join(" | ") + "\n";
   out += widths.map(w => "-".repeat(w)).join("-+-") + "\n";
   rows.forEach(r => {
-    out += r.map((c, i) => padCell(c, widths[i], noTruncateCols.includes(i))).join(" | ") + "\n";
+    out += r.map((c, i) => padCell(c, widths[i])).join(" | ") + "\n";
   });
   return out;
 }
@@ -1896,7 +1972,7 @@ function generateReportText(){
       userTranslations[item.id],
       item.hint
     ]);
-    body += buildTextTable(["#", "Propozitie (RO)", "Raspunsul Elevului", "Gramatica"], widths, rows, [3]) + "\n";
+    body += buildTextTable(["#", "Propozitie (RO)", "Raspunsul Elevului", "Gramatica"], widths, rows) + "\n";
   }
 
   body += "=== 2. CORECTAREA ERORILOR (" + answeredErrors.length + " raspunsuri completate) ===\n\n";
@@ -1910,7 +1986,7 @@ function generateReportText(){
       userErrors[item.id],
       item.hint
     ]);
-    body += buildTextTable(["#", "Propozitie cu Eroare", "★ CORECTAREA ELEVULUI ★", "Tip Eroare"], widths, rows, [3]) + "\n";
+    body += buildTextTable(["#", "Propozitie cu Eroare", "Corectarea Elevului", "Tip Eroare"], widths, rows) + "\n";
   }
 
   return body;
@@ -1943,9 +2019,49 @@ function populateThemeSelector(){
   select.innerHTML = html;
 }
 
+// ============ CONTINUOUS BACKGROUND AUDIO ============
+// Browsers block autoplay-with-sound until the visitor has interacted with
+// the page, so we try to autoplay immediately and, if that is blocked, show
+// a small floating button that starts playback on the first click/tap
+// (which always counts as the required user gesture) and also start it on
+// the very first interaction anywhere on the page.
+function startAudio(){
+  const audio = document.getElementById("bgAudio");
+  const btn = document.getElementById("audioFallbackBtn");
+  if(!audio) return;
+  audio.play().then(() => {
+    if(btn) btn.style.display = "none";
+  }).catch(() => {
+    if(btn) btn.style.display = "block";
+  });
+}
+
+function tryAutoplay(){
+  const audio = document.getElementById("bgAudio");
+  const btn = document.getElementById("audioFallbackBtn");
+  if(!audio) return;
+  const playPromise = audio.play();
+  if(playPromise && playPromise.catch){
+    playPromise.then(() => {
+      if(btn) btn.style.display = "none";
+    }).catch(() => {
+      // Autoplay blocked by the browser: reveal the fallback button and
+      // also start playback automatically the moment the user interacts
+      // with the page in any way (click, tap, key press).
+      if(btn) btn.style.display = "block";
+      const resumeOnInteraction = () => {
+        startAudio();
+        ["click","touchstart","keydown"].forEach(evt => document.removeEventListener(evt, resumeOnInteraction));
+      };
+      ["click","touchstart","keydown"].forEach(evt => document.addEventListener(evt, resumeOnInteraction, { once: true }));
+    });
+  }
+}
+
 window.onload = function(){
   populateThemeSelector();
   filterData();
+  tryAutoplay();
 };
 
 </script>
