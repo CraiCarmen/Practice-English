@@ -124,6 +124,34 @@
             border-radius: 20px;
             box-shadow: 0 3px 8px rgba(234, 88, 12, 0.4);
         }
+        .level-toggle-group {
+            display: flex;
+            gap: 8px;
+        }
+        .level-toggle-btn {
+            flex: 1;
+            min-width: 60px;
+            padding: 12px 10px;
+            border: 1px solid rgba(255,255,255,0.4);
+            border-radius: 8px;
+            background: rgba(255,255,255,0.12);
+            color: #ffffff;
+            font-size: 14px;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: none;
+            transition: background 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
+        }
+        .level-toggle-btn:hover {
+            background: rgba(255,255,255,0.22);
+            transform: none;
+            box-shadow: none;
+        }
+        .level-toggle-btn.level-active {
+            background: linear-gradient(135deg, #fb923c, #ea580c);
+            border-color: #ea580c;
+            box-shadow: 0 4px 10px rgba(234, 88, 12, 0.4);
+        }
         select, input[type="text"] {
             width: 100%;
             padding: 13px 14px;
@@ -271,6 +299,24 @@
             font-style: italic;
             margin-top: 1px;
         }
+        .ex-tobe {
+            border-top: 1px dashed #cbd5e1;
+            margin-top: 6px;
+            padding-top: 6px;
+        }
+        .ex-tobe::marker {
+            color: #ea580c;
+        }
+        .tense-card.level-hidden {
+            display: none;
+        }
+        @keyframes flashUpdate {
+            0%   { box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.55); }
+            100% { box-shadow: 0 2px 8px rgba(30, 58, 138, 0.08); }
+        }
+        .flash-update {
+            animation: flashUpdate 0.9s ease-out;
+        }
         .btn-group {
             display: flex;
             gap: 15px;
@@ -353,10 +399,17 @@
             </select>
         </div>
         <div style="flex:1; min-width:220px;">
-            <button type="button" onclick="filterData()" style="width:100%; margin-top:0;">🔄 Generează Propoziții Noi</button>
+            <label style="font-weight:600; display:block; margin-bottom:6px; color:#dbeafe; font-size:14px;">Nivel (Level)</label>
+            <div class="level-toggle-group">
+                <button type="button" id="levelBtn_A2" class="level-toggle-btn" onclick="setLevel('A2')">A2</button>
+                <button type="button" id="levelBtn_B1" class="level-toggle-btn level-active" onclick="setLevel('B1')">B1</button>
+            </div>
+        </div>
+        <div style="flex:1; min-width:220px;">
+            <button type="button" id="regenBtn" onclick="regenerateSentences()" style="width:100%; margin-top:0;">🔄 Generează Propoziții Noi</button>
         </div>
     </div>
-    <p class="info-note">✨ La fiecare selecție a temei, la fiecare schimbare a numărului de propoziții, la fiecare apăsare a butonului de mai sus și la fiecare reîncărcare a paginii, sistemul generează automat propoziții noi și unice (structuri gramaticale + vocabular profesional), cu șanse minime de repetare.</p>
+    <p class="info-note">✨ La fiecare selecție a temei, la fiecare schimbare a nivelului sau a numărului de propoziții, la fiecare apăsare a butonului de mai sus și la fiecare reîncărcare a paginii, sistemul generează automat propoziții noi și unice (structuri gramaticale + vocabular profesional), cu șanse minime de repetare.</p>
 </div>
 
 <div class="container cv-promo">
@@ -372,8 +425,8 @@
 
 <div class="container">
     <h3>📊 Ghid de Echivalențe Gramaticale (Grammar Reference Matrix)</h3>
-    <p class="info-note">Structurile și cuvintele cheie de mai jos provin din materialul de referință al profesoarei. Apasă pe fiecare timp verbal pentru a extinde exemplele pentru <strong>I / She / We</strong> la fiecare formă: <strong>Afirmativ (+), Negativ (−), Întrebare (?+), Întrebare negativă (?−)</strong>.</p>
-    <details class="tense-card">
+    <p class="info-note">Structurile și cuvintele cheie de mai jos provin din materialul de referință al profesoarei. Apasă pe fiecare timp verbal pentru a extinde exemplele pentru <strong>I / She / We</strong> la fiecare formă: <strong>Afirmativ (+), Negativ (−), Întrebare (?+), Întrebare negativă (?−)</strong>. La nivelul <strong>A2</strong> se afișează doar timpurile de bază.</p>
+    <details class="tense-card" data-tense="presentSimple">
       <summary>
         <span class="tense-name-en">Present Simple</span>
         <span class="tense-name-ro">Prezentul Indicativ (obicei)</span>
@@ -403,10 +456,10 @@
           </tr>
           <tr>
             <td class="pronoun-cell">She</td>
-            <td><ol class="ex-list"><li>She always works.<span class="ex-ro">Ea lucrează întotdeauna.</span></li><li>She often works.<span class="ex-ro">Ea lucrează adesea.</span></li><li>She usually works.<span class="ex-ro">Ea lucrează de obicei.</span></li></ol></td>
-            <td><ol class="ex-list"><li>She doesn't always work.<span class="ex-ro">Ea nu lucrează întotdeauna.</span></li><li>She doesn't often work.<span class="ex-ro">Ea nu lucrează adesea.</span></li><li>She doesn't usually work.<span class="ex-ro">Ea nu lucrează de obicei.</span></li></ol></td>
-            <td><ol class="ex-list"><li>Does she always work?<span class="ex-ro">Ea lucrează întotdeauna?</span></li><li>Does she often work?<span class="ex-ro">Ea lucrează adesea?</span></li><li>Does she usually work?<span class="ex-ro">Ea lucrează de obicei?</span></li></ol></td>
-            <td><ol class="ex-list"><li>Doesn't she always work?<span class="ex-ro">Ea nu lucrează întotdeauna?</span></li><li>Doesn't she often work?<span class="ex-ro">Ea nu lucrează adesea?</span></li><li>Doesn't she usually work?<span class="ex-ro">Ea nu lucrează de obicei?</span></li></ol></td>
+            <td><ol class="ex-list"><li>She always works.<span class="ex-ro">Ea lucrează întotdeauna.</span></li><li>She often works.<span class="ex-ro">Ea lucrează adesea.</span></li><li>She usually works.<span class="ex-ro">Ea lucrează de obicei.</span></li><li class="ex-tobe">She is always punctual.<span class="ex-ro">Ea este întotdeauna punctuală.</span></li></ol></td>
+            <td><ol class="ex-list"><li>She doesn't always work.<span class="ex-ro">Ea nu lucrează întotdeauna.</span></li><li>She doesn't often work.<span class="ex-ro">Ea nu lucrează adesea.</span></li><li>She doesn't usually work.<span class="ex-ro">Ea nu lucrează de obicei.</span></li><li class="ex-tobe">She isn't always punctual.<span class="ex-ro">Ea nu este întotdeauna punctuală.</span></li></ol></td>
+            <td><ol class="ex-list"><li>Does she always work?<span class="ex-ro">Ea lucrează întotdeauna?</span></li><li>Does she often work?<span class="ex-ro">Ea lucrează adesea?</span></li><li>Does she usually work?<span class="ex-ro">Ea lucrează de obicei?</span></li><li class="ex-tobe">Is she always punctual?<span class="ex-ro">Ea este întotdeauna punctuală?</span></li></ol></td>
+            <td><ol class="ex-list"><li>Doesn't she always work?<span class="ex-ro">Ea nu lucrează întotdeauna?</span></li><li>Doesn't she often work?<span class="ex-ro">Ea nu lucrează adesea?</span></li><li>Doesn't she usually work?<span class="ex-ro">Ea nu lucrează de obicei?</span></li><li class="ex-tobe">Isn't she always punctual?<span class="ex-ro">Ea nu este întotdeauna punctuală?</span></li></ol></td>
           </tr>
           <tr>
             <td class="pronoun-cell">We</td>
@@ -420,14 +473,14 @@
       </div>
     </details>
 
-    <details class="tense-card">
+    <details class="tense-card" data-tense="presentSimplePassive">
       <summary>
         <span class="tense-name-en">Present Simple Passive</span>
         <span class="tense-name-ro">Prezentul Pasiv</span>
       </summary>
       <div class="tense-body">
         <p class="tense-desc">Focus is on the action, not on the person/doer.</p>
-        <p class="tense-form"><strong>Formă:</strong> am/is/are + V3</p>
+        <p class="tense-form"><strong>Formă:</strong> am/is/are + V3 (infinitive: to be + V3 — e.g. to be trained, to be loved)</p>
         <p class="kw-label"><strong>Cuvinte cheie (Key Words):</strong></p>
         <p class="kw-note">— same key words as Present Simple</p>
         <table class="example-table">
@@ -467,7 +520,7 @@
       </div>
     </details>
 
-    <details class="tense-card">
+    <details class="tense-card" data-tense="presentContinuous">
       <summary>
         <span class="tense-name-en">Present Continuous</span>
         <span class="tense-name-ro">Prezentul Continuu</span>
@@ -514,7 +567,7 @@
       </div>
     </details>
 
-    <details class="tense-card">
+    <details class="tense-card" data-tense="presentPerfect">
       <summary>
         <span class="tense-name-en">Present Perfect</span>
         <span class="tense-name-ro">Perfectul Compus</span>
@@ -561,7 +614,7 @@
       </div>
     </details>
 
-    <details class="tense-card">
+    <details class="tense-card" data-tense="presentPerfectContinuous">
       <summary>
         <span class="tense-name-en">Present Perfect Continuous</span>
         <span class="tense-name-ro">Prezentul Indicativ (+ de/din)</span>
@@ -608,7 +661,7 @@
       </div>
     </details>
 
-    <details class="tense-card">
+    <details class="tense-card" data-tense="pastSimple">
       <summary>
         <span class="tense-name-en">Past Simple</span>
         <span class="tense-name-ro">Perfectul Compus / Simplu</span>
@@ -655,14 +708,14 @@
       </div>
     </details>
 
-    <details class="tense-card">
+    <details class="tense-card" data-tense="pastSimplePassive">
       <summary>
         <span class="tense-name-en">Past Simple Passive</span>
         <span class="tense-name-ro">Perfectul Compus Pasiv</span>
       </summary>
       <div class="tense-body">
         <p class="tense-desc">Focus is on the action, not on the person who does it.</p>
-        <p class="tense-form"><strong>Formă:</strong> was/were + V3</p>
+        <p class="tense-form"><strong>Formă:</strong> was/were + V3 (infinitive: to be + V3 — e.g. to be trained, to be loved)</p>
         <p class="kw-label"><strong>Cuvinte cheie (Key Words):</strong></p>
         <p class="kw-note">— same key words as Past Simple</p>
         <table class="example-table">
@@ -702,7 +755,7 @@
       </div>
     </details>
 
-    <details class="tense-card">
+    <details class="tense-card" data-tense="pastContinuous">
       <summary>
         <span class="tense-name-en">Past Continuous</span>
         <span class="tense-name-ro">Imperfectul</span>
@@ -749,7 +802,7 @@
       </div>
     </details>
 
-    <details class="tense-card">
+    <details class="tense-card" data-tense="pastPerfect">
       <summary>
         <span class="tense-name-en">Past Perfect</span>
         <span class="tense-name-ro">Mai-mult-ca-perfectul</span>
@@ -796,7 +849,7 @@
       </div>
     </details>
 
-    <details class="tense-card">
+    <details class="tense-card" data-tense="futureSimple">
       <summary>
         <span class="tense-name-en">Future Simple</span>
         <span class="tense-name-ro">Viitorul Standard</span>
@@ -843,14 +896,14 @@
       </div>
     </details>
 
-    <details class="tense-card">
+    <details class="tense-card" data-tense="futureSimplePassive">
       <summary>
         <span class="tense-name-en">Future Simple Passive</span>
         <span class="tense-name-ro">Viitorul Pasiv</span>
       </summary>
       <div class="tense-body">
         <p class="tense-desc">Focus is on the action, not on the person/doer.</p>
-        <p class="tense-form"><strong>Formă:</strong> will + be + V3</p>
+        <p class="tense-form"><strong>Formă:</strong> will + be + V3 (infinitive: to be + V3 — e.g. to be trained, to be loved)</p>
         <p class="kw-label"><strong>Cuvinte cheie (Key Words):</strong></p>
         <p class="kw-note">— same key words as Future Simple</p>
         <table class="example-table">
@@ -890,7 +943,7 @@
       </div>
     </details>
 
-    <details class="tense-card">
+    <details class="tense-card" data-tense="futureContinuous">
       <summary>
         <span class="tense-name-en">Future Continuous</span>
         <span class="tense-name-ro">Viitorul de desfășurare</span>
@@ -943,7 +996,7 @@
     <h2>1. Romanian to English Translations (<span id="translationsCountLabel">50</span> propoziții) <span class="theme-badge" id="themeBadge">Toate Domeniile</span></h2>
     <p class="info-note">💡 Verbul cerut apare între paranteze la infinitiv — folosește timpul/structura indicată în ultima coloană pentru a-l conjuga corect în engleză. Se afișează primele 10 propoziții — derulează în interiorul tabelului pentru restul.</p>
     <div class="table-scroll">
-    <table>
+    <table id="translationsTable">
         <thead>
             <tr>
                 <th style="width: 5%;">#</th>
@@ -961,7 +1014,7 @@
     <h2>2. Error Correction Exercises (<span id="errorsCountLabel">50</span> propoziții)</h2>
     <p class="info-note">⚠️ Fiecare propoziție poate conține mai multe erori simultan (timp verbal, adjective, substantive folosite ca adjective, adverbe, cuvinte de legătură). Se afișează primele 10 propoziții — derulează în interiorul tabelului pentru restul.</p>
     <div class="table-scroll">
-    <table>
+    <table id="errorsTable">
         <thead>
             <tr>
                 <th style="width: 5%;">#</th>
@@ -1269,7 +1322,7 @@ const translationConstructs = [
   }},
   { hint:"Modal Verb", build(theme){
       const {subjEn,subjRo,objEn,objRo,verb} = getRandom(theme);
-      const m = pick(modals);
+      const m = pick(currentLevel === 'A2' ? A2_MODALS : modals);
       return {
         ro: `${cap(subjRo)} ${m.ro} (${verb.ro}) ${objRo} până vineri.`,
         en: `${cap(subjEn)} ${m.en} ${m.en==='have to'?'':''}${verb.inf} the ${objEn} by Friday.`
@@ -1431,9 +1484,48 @@ const errorConstructs = [
 
 function themesList(){ return Object.keys(themeVocab); }
 
+// ============ CEFR LEVEL FILTERING (A2 vs B1) ============
+let currentLevel = 'B1';
+const A2_TRANSLATION_HINTS = new Set([
+  "Present Simple", "Present Continuous", "Past Simple", "Future Simple (will)",
+  "Modal Verb", "Question (+)", "Question (-)", "Negative Statement (-)"
+]);
+const A2_ERROR_HINTS = new Set([
+  "Present Simple (agreement)", "Present Continuous", "Past Simple (irregular/regular)",
+  "Future Simple", "Question (+)", "Question (-)", "Double Negation"
+]);
+const A2_MODALS = modals.filter(m => ["can", "could", "must"].includes(m.en));
+const A2_GRAMMAR_TENSES = new Set([
+  "presentSimple", "presentContinuous", "presentSimplePassive",
+  "pastSimple", "pastContinuous", "pastSimplePassive",
+  "futureSimple", "futureContinuous"
+]);
+
+function applyGrammarMatrixLevelFilter(){
+  document.querySelectorAll('.tense-card[data-tense]').forEach(card => {
+    const tense = card.getAttribute('data-tense');
+    const show = currentLevel === 'B1' || A2_GRAMMAR_TENSES.has(tense);
+    card.classList.toggle('level-hidden', !show);
+    if(!show){ card.removeAttribute('open'); }
+  });
+}
+
+function setLevel(level){
+  currentLevel = level;
+  ['A2','B1'].forEach(l => {
+    const btn = document.getElementById('levelBtn_' + l);
+    if(btn) btn.classList.toggle('level-active', l === level);
+  });
+  applyGrammarMatrixLevelFilter();
+  filterData();
+}
+
 function buildTranslationItem(theme){
   const actualTheme = theme==='All' ? pick(themesList()) : theme;
-  const c = pick(translationConstructs);
+  const pool = currentLevel === 'A2'
+    ? translationConstructs.filter(c => A2_TRANSLATION_HINTS.has(c.hint))
+    : translationConstructs;
+  const c = pick(pool);
   const r = c.build(actualTheme);
   return { category: actualTheme, hint: c.hint, romanian: r.ro, answerKey: r.en };
 }
@@ -1503,8 +1595,17 @@ function buildMultiErrorItem(theme){
 }
 
 function buildErrorItem(theme){
-  // ~75% of items are compound (multiple simultaneous errors); the rest use
-  // the single-focus constructs above for foundational practice.
+  // A2: always use simple, single-focus foundational errors (no compound
+  // multi-error sentences, which are too advanced for elementary learners).
+  if(currentLevel === 'A2'){
+    const actualTheme = theme==='All' ? pick(themesList()) : theme;
+    const pool = errorConstructs.filter(c => A2_ERROR_HINTS.has(c.hint));
+    const c = pick(pool);
+    const err = c.build(actualTheme);
+    return { category: actualTheme, hint: c.hint, err };
+  }
+  // B1: ~75% of items are compound (multiple simultaneous errors); the rest
+  // use the single-focus constructs above for foundational practice.
   if(Math.random() < 0.75){
     return buildMultiErrorItem(theme);
   }
@@ -1537,7 +1638,7 @@ const userErrors = {};
 let currentTranslations = [];
 let currentErrors = [];
 
-function usedKey(theme, kind){ return "used_" + kind + "_" + theme; }
+function usedKey(theme, kind){ return "used_" + kind + "_" + theme + "_" + currentLevel; }
 
 function pickFresh(theme, kind, count){
   const pool = generatePool(theme, kind, Math.max(count * 6, 300));
@@ -1604,6 +1705,33 @@ function filterData(){
   document.getElementById("errorsCountLabel").textContent = count;
 }
 
+function regenerateSentences(){
+  const btn = document.getElementById("regenBtn");
+  const originalText = btn.textContent;
+  try {
+    filterData();
+    btn.textContent = "✅ Actualizat!";
+    ["translationsTable", "errorsTable"].forEach(id => {
+      const el = document.getElementById(id);
+      if(el){
+        el.classList.remove("flash-update");
+        // force reflow so the animation can retrigger on consecutive clicks
+        void el.offsetWidth;
+        el.classList.add("flash-update");
+      }
+    });
+    const scrollTarget = document.getElementById("translationsTable");
+    if(scrollTarget){
+      window.scrollTo({ top: scrollTarget.getBoundingClientRect().top + window.scrollY - 90, behavior: "smooth" });
+    }
+  } catch(e){
+    console.error(e);
+    btn.textContent = "⚠️ Eroare — încearcă din nou";
+  } finally {
+    setTimeout(() => { btn.textContent = originalText; }, 1100);
+  }
+}
+
 // ============ WORD DOCUMENT EXPORT (.doc, gradient-blue styled) ============
 // Built as a self-contained MS-Word-compatible HTML document (no external
 // libraries / no CDN / works fully offline) so it always downloads reliably.
@@ -1659,7 +1787,6 @@ function downloadWordDoc(){
     const name = document.getElementById("studentName").value || "Student Anonim";
     const theme = document.getElementById("themeSelector").value;
     const dateStr = new Date().toLocaleDateString("ro-RO");
-
     const htmlDoc = `<!DOCTYPE html>
 <html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns="http://www.w3.org/TR/REC-html40">
 <head>
@@ -1684,9 +1811,10 @@ function downloadWordDoc(){
 </head>
 <body>
   <h1>English Practice Portal</h1>
-  <h2>Raport Exerciții Engleză &mdash; Nivel B1</h2>
+  <h2>Raport Exerciții Engleză &mdash; Nivel ${escapeHtml(currentLevel)}</h2>
   <table class="meta">
     <tr><td><b>Cursant:</b></td><td>${escapeHtml(name)}</td></tr>
+    <tr><td><b>Nivel:</b></td><td>${escapeHtml(currentLevel)}</td></tr>
     <tr><td><b>Temă / Domeniu:</b></td><td>${escapeHtml(theme)}</td></tr>
     <tr><td><b>Data:</b></td><td>${dateStr}</td></tr>
   </table>
@@ -1703,7 +1831,7 @@ function downloadWordDoc(){
     const url = URL.createObjectURL(blob);
     const a = document.createElement("a");
     a.href = url;
-    a.download = "Grammar_Exercise_Report_" + name.replace(/\s+/g, "_") + ".doc";
+    a.download = "Grammar_Exercise_Report_" + currentLevel + "_" + name.replace(/\s+/g, "_") + ".doc";
     document.body.appendChild(a);
     a.click();
     document.body.removeChild(a);
@@ -1716,32 +1844,61 @@ function downloadWordDoc(){
 
 // ============ EMAIL EXPORT (recipient hidden behind "Teacher Carmen") ============
 // Only the questions the student actually answered are included.
+function padCell(str, width, noTruncate){
+  str = String(str);
+  if(str.length > width){
+    return noTruncate ? str : (str.slice(0, width - 1) + "…");
+  }
+  return str + " ".repeat(width - str.length);
+}
+
+function buildTextTable(headers, widths, rows, noTruncateCols){
+  noTruncateCols = noTruncateCols || [];
+  let out = headers.map((h, i) => padCell(h, widths[i])).join(" | ") + "\n";
+  out += widths.map(w => "-".repeat(w)).join("-+-") + "\n";
+  rows.forEach(r => {
+    out += r.map((c, i) => padCell(c, widths[i], noTruncateCols.includes(i))).join(" | ") + "\n";
+  });
+  return out;
+}
+
 function generateReportText(){
   const name = document.getElementById("studentName").value || "Student Anonim";
   const theme = document.getElementById("themeSelector").value;
-  let body = "RAPORT EXERCIȚII ENGLEZĂ - B1 WORKSPACE\n";
+  let body = "RAPORT EXERCIȚII ENGLEZĂ - NIVEL " + currentLevel + " WORKSPACE\n";
   body += "Cursant: " + name + "\n";
+  body += "Nivel: " + currentLevel + "\n";
   body += "Temă / Domeniu: " + theme + "\n\n";
 
   const answeredTranslations = currentTranslations.filter(item => (userTranslations[item.id] || "").trim() !== "");
   const answeredErrors = currentErrors.filter(item => (userErrors[item.id] || "").trim() !== "");
 
-  body += "--- 1. ROMANIAN TO ENGLISH TRANSLATIONS (" + answeredTranslations.length + " răspunsuri) ---\n\n";
+  body += "=== 1. TRADUCERI (" + answeredTranslations.length + " răspunsuri completate) ===\n\n";
   if(answeredTranslations.length === 0){
     body += "(Niciun răspuns completat.)\n\n";
   } else {
-    answeredTranslations.forEach((item, index) => {
-      body += (index + 1) + ". Ro: " + item.romanian + "\n   Ans: " + userTranslations[item.id] + "\n   [Grammar: " + item.hint + "]\n\n";
-    });
+    const widths = [3, 36, 30, 26];
+    const rows = answeredTranslations.map((item, index) => [
+      String(index + 1),
+      item.romanian,
+      userTranslations[item.id],
+      item.hint
+    ]);
+    body += buildTextTable(["#", "Propoziție (RO)", "Răspunsul Elevului", "Gramatică"], widths, rows, [3]) + "\n";
   }
 
-  body += "--- 2. ERROR CORRECTION EXERCISES (" + answeredErrors.length + " răspunsuri) ---\n\n";
+  body += "=== 2. CORECTAREA ERORILOR (" + answeredErrors.length + " răspunsuri completate) ===\n\n";
   if(answeredErrors.length === 0){
     body += "(Niciun răspuns completat.)\n\n";
   } else {
-    answeredErrors.forEach((item, index) => {
-      body += (index + 1) + ". Error Sentence: " + item.err + "\n   Correction: " + userErrors[item.id] + "\n   [Hint: " + item.hint + "]\n\n";
-    });
+    const widths = [3, 36, 30, 26];
+    const rows = answeredErrors.map((item, index) => [
+      String(index + 1),
+      item.err,
+      userErrors[item.id],
+      item.hint
+    ]);
+    body += buildTextTable(["#", "Propoziție cu Eroare", "Corectarea Elevului", "Tip Eroare"], widths, rows, [3]) + "\n";
   }
 
   return body;
@@ -1757,7 +1914,7 @@ function sendEmailClient(){
     alert("Nu ai completat niciun răspuns încă. Scrie cel puțin un răspuns înainte de a trimite.");
     return;
   }
-  const subject = encodeURIComponent("Grammar Exercise Report - B1 - " + name + " (pentru " + teacherNickname + ")");
+  const subject = encodeURIComponent("Grammar Exercise Report - " + currentLevel + " - " + name + " (pentru " + teacherNickname + ")");
   const reportBody = generateReportText();
   const mailtoUrl = "mailto:" + recipient + "?subject=" + subject + "&body=" + encodeURIComponent(reportBody);
   window.location.href = mailtoUrl;
